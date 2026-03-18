@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #B91C1C;
+  --color-brand-secondary: #F8931F;
+  --color-brand-lightBlue: #F8931F;
+  --color-brand-dark: #0f172a;
+  --color-brand-gray: #374151;
+  --color-brand-light: #F3F4F6;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-brand-gray bg-white;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-primary hover:bg-red-700 transition-colors duration-300 shadow-sm;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-brand-primary text-base font-medium rounded-md text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white transition-colors duration-300;
+  }
+}
+
+/* Engineering Grid Enhancements */
+.engineering-tile {
+  @apply h-full;
+}
