@@ -6,6 +6,12 @@ import Contact from '../components/Contact';
 import { motion } from 'framer-motion';
 import { Award, ShieldCheck, Zap, Repeat, Headphones } from 'lucide-react';
 
+// Portfolio Images
+import runFlatImg from '../assets/images/portfolio/run-flat.jpeg';
+import appleFenderImg from '../assets/images/portfolio/apple-fender.jfif';
+import pneumaticFenderImg from '../assets/images/portfolio/pneumatic-fender.jfif';
+import airlessTireImg from '../assets/images/portfolio/airless-tire.jpeg';
+
 const Home = () => {
    return (
       <div>
@@ -16,7 +22,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }}
             className="py-6 sm:py-10 bg-white border-b border-gray-100 overflow-hidden"
          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="w-full text-center">
                <p className="text-[10px] sm:text-sm font-extrabold text-gray-600 uppercase tracking-widest mb-4 sm:mb-6">Trusted By</p>
                <div className="relative overflow-hidden w-full flex items-center h-12 sm:h-20">
                   <motion.div
@@ -109,32 +115,40 @@ const Home = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="text-center mb-16">
                   <h2 className="text-brand-secondary font-semibold tracking-wide uppercase">Dynamic Portfolio</h2>
-                  <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">Featured Projects & Innovations</p>
+                  <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">Featured Products & Innovations</p>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                   <div className="group rounded-xl overflow-hidden cursor-pointer relative">
-                     <img src="https://images.unsplash.com/photo-1580983546513-39d67d730a9e?q=80&w=2938&auto=format&fit=crop" alt="Non-Pneumatic Tire" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
+                     <img src={runFlatImg} alt="Non-Pneumatic Tire" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 p-6">
-                        <h3 className="text-xl font-bold mb-1">Non-Pneumatic Tires</h3>
-                        <p className="text-sm text-gray-300">Automotive / Defense</p>
+                        <h3 className="text-xl font-bold mb-1">Run Flat</h3>
+                        <p className="text-sm text-gray-300">Automotive</p>
                      </div>
                   </div>
                   <div className="group rounded-xl overflow-hidden cursor-pointer relative">
-                     <img src="https://images.unsplash.com/photo-1549468057-5426b38c03e8?q=80&w=2960&auto=format&fit=crop" alt="Testing Equipment" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
+                     <img src={appleFenderImg} alt="Testing Equipment" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                      <div className="absolute bottom-0 left-0 p-6">
-                        <h3 className="text-xl font-bold mb-1">TU-Series Integration</h3>
-                        <p className="text-sm text-gray-300">Manufacturing Plant</p>
-                     </div>
-                  </div>
-                  <div className="group rounded-xl overflow-hidden cursor-pointer relative">
-                     <img src="https://images.unsplash.com/photo-1508344928928-7137b29de216?q=80&w=2938&auto=format&fit=crop" alt="Marine Propulsion" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                     <div className="absolute bottom-0 left-0 p-6">
-                        <h3 className="text-xl font-bold mb-1">Turbine Optimization</h3>
+                        <h3 className="text-xl font-bold mb-1">Apple Fender</h3>
                         <p className="text-sm text-gray-300">Marine Engineering</p>
+                     </div>
+                  </div>
+                  <div className="group rounded-xl overflow-hidden cursor-pointer relative">
+                     <img src={pneumaticFenderImg} alt="Marine Propulsion" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                     <div className="absolute bottom-0 left-0 p-6">
+                        <h3 className="text-xl font-bold mb-1">Pneumatic Fender</h3>
+                        <p className="text-sm text-gray-300">Marine Engineering</p>
+                     </div>
+                  </div>
+                  <div className="group rounded-xl overflow-hidden cursor-pointer relative">
+                     <img src={airlessTireImg} alt="Airless Tire" className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                     <div className="absolute bottom-0 left-0 p-6">
+                        <h3 className="text-xl font-bold mb-1">Airless Tire</h3>
+                        <p className="text-sm text-gray-300">Sustainable Mobility</p>
                      </div>
                   </div>
                </div>
@@ -149,58 +163,72 @@ const Home = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
-                  <div>
+                  <div className="flex flex-col items-end text-right">
                      <h3 className="text-2xl font-bold text-gray-900 mb-8">Industry Recognition & Accreditations</h3>
-                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-4 flex items-center">
-                        <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mr-4 shrink-0">
-                           <span className="font-bold text-brand-primary">ISO</span>
+                     <div className="space-y-4 w-full flex flex-col items-end">
+                        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300 max-w-md w-full">
+                           <div className="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                              <span className="text-orange-600 font-bold text-xs">ISO</span>
+                           </div>
+                           <div className="text-left">
+                              <h4 className="font-bold text-gray-900">ISO 9001:2015 Certified</h4>
+                              <p className="text-sm text-gray-500">Quality Management Systems</p>
+                           </div>
                         </div>
-                        <div>
-                           <h4 className="font-bold text-gray-900">ISO 9001:2015 Certified</h4>
-                           <p className="text-sm text-gray-500">Quality Management Systems</p>
-                        </div>
-                     </div>
-                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                        <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mr-4 shrink-0">
-                           <span className="font-bold text-brand-primary">AEC</span>
-                        </div>
-                        <div>
-                           <h4 className="font-bold text-gray-900">Global Engineering Excellence Award</h4>
-                           <p className="text-sm text-gray-500">Category: Automotive Testing Equipment</p>
+
+                        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300 max-w-md w-full">
+                           <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mr-4 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                              <span className="text-blue-600 font-bold text-xs">AEC</span>
+                           </div>
+                           <div className="text-left">
+                              <h4 className="font-bold text-gray-900">Global Engineering Excellence Award</h4>
+                              <p className="text-sm text-gray-500">Category: Automotive Testing Equipment</p>
+                           </div>
                         </div>
                      </div>
                   </div>
 
                   <div>
                      <h3 className="text-2xl font-bold text-gray-900 mb-8">Academic Partners & Research</h3>
-                     <p className="text-gray-600 mb-8">We collaborate with premier engineering institutions to provide specialized Project Based Learning (PBL) for AI programs and courses.</p>
 
-                     <div className="space-y-4">
-                        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300">
-                           <div className="w-16 h-16 mr-4 flex items-center justify-center shrink-0">
-                              <img
-                                 src="https://www.svnit.ac.in/images/logo.png"
-                                 alt="NIT Surat Logo"
-                                 className="max-h-full w-auto transition-all duration-300"
-                              />
+                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
+                        <div className="space-y-4">
+                           <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300">
+                              <div className="w-16 h-16 mr-4 flex items-center justify-center shrink-0">
+                                 <img
+                                    src="https://www.svnit.ac.in/images/logo.png"
+                                    alt="NIT Surat Logo"
+                                    className="max-h-full w-auto transition-all duration-300"
+                                 />
+                              </div>
+                              <div>
+                                 <h4 className="font-bold text-gray-900 text-sm sm:text-base">Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat</h4>
+                                 <p className="text-[10px] sm:text-xs text-brand-primary font-medium mt-0.5">Academic Partner</p>
+                              </div>
                            </div>
-                           <div>
-                              <h4 className="font-bold text-gray-900 text-sm sm:text-base">Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat</h4>
-                              <p className="text-[10px] sm:text-xs text-brand-primary font-medium mt-0.5">Academic Partner</p>
+
+                           <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300">
+                              <div className="w-16 h-16 mr-4 flex items-center justify-center shrink-0">
+                                 <img
+                                    src="https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png"
+                                    alt="KTU Logo"
+                                    className="max-h-full w-auto transition-all duration-300"
+                                 />
+                              </div>
+                              <div>
+                                 <h4 className="font-bold text-gray-900 text-sm sm:text-base">APJ Abdul Kalam Technological University (KTU), Kerala</h4>
+                                 <p className="text-[10px] sm:text-xs text-brand-primary font-medium mt-0.5">Research Partner</p>
+                              </div>
                            </div>
                         </div>
 
-                        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center group hover:shadow-md transition-all duration-300">
-                           <div className="w-16 h-16 mr-4 flex items-center justify-center shrink-0">
-                              <img
-                                 src="https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png"
-                                 alt="KTU Logo"
-                                 className="max-h-full w-auto transition-all duration-300"
-                              />
-                           </div>
-                           <div>
-                              <h4 className="font-bold text-gray-900 text-sm sm:text-base">APJ Abdul Kalam Technological University (KTU), Kerala</h4>
-                              <p className="text-[10px] sm:text-xs text-brand-primary font-medium mt-0.5">Research Partner</p>
+                        <div className="bg-red-700 text-white p-8 rounded-3xl shadow-[0_20px_50px_rgba(185,28,28,0.3)] relative overflow-hidden group h-full flex flex-col justify-center">
+                           <div className="absolute top-0 right-0 -mr-6 -mt-6 w-32 h-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+                           <p className="relative z-10 text-xl font-bold leading-relaxed italic">
+                              "We collaborate with premier engineering institutions to provide specialized Project Based Learning (PBL) for AI programs and courses."
+                           </p>
+                           <div className="mt-4 flex justify-end">
+                              <div className="w-12 h-1 bg-white/30 rounded-full"></div>
                            </div>
                         </div>
                      </div>
