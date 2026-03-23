@@ -49,7 +49,7 @@ const services = [
   },
   {
     title: 'Testing, Inspection & Certification',
-    description: 'Rigorous quality assurance, material testing, and compliance verification ensuring industry standards.',
+    description: 'Comprehensive product testing, inspection, and certification for safety and global compliance in rubber, plastics, and composites.',
     image: testingImg,
     path: '/services/testing',
     delay: 0.6
