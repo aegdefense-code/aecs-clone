@@ -1,7 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import { ShieldCheck, Zap, Factory, Microscope, CheckCircle2, Globe } from 'lucide-react';
+
+// Image Imports
+import tbm1 from '../../assets/images/machines/testing-inspection/Tyre Building Machine-1.jpg';
+import tbm2 from '../../assets/images/machines/testing-inspection/Tyre Building Machine-2.jpg';
+import tcp1 from '../../assets/images/machines/testing-inspection/Tyre Curing Press-1.jpg';
+import tcp2 from '../../assets/images/machines/testing-inspection/Tyre Curing Press-2.png';
 
 const TestingCertification = () => {
   const materials = [
@@ -15,23 +22,27 @@ const TestingCertification = () => {
       title: "Tire Building Machine",
       client: "AEG Group",
       description: "Conducted inspection and certification to ensure compliance with operational, safety, and quality standards. Successfully exported to the United States after evaluation.",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2800&auto=format&fit=crop"
+      image: tbm1
     },
     {
       title: "Tire Curing Press",
       client: "AEG Group",
       description: "Thorough evaluation for performance, structural integrity, and operational efficiency. Ensured compliance with international standards for export to the US.",
-      image: "https://images.unsplash.com/photo-1558444479-c84826027205?q=80&w=2800&auto=format&fit=crop"
+      image: tcp1
     }
   ];
 
   return (
     <div className="bg-white">
-      <PageHero 
-        title="Testing, Inspection & Certification" 
+      <PageHero
+        title="Testing, Inspection & Certification"
         subtitle="Ensuring Safety, Reliability, and Global Compliance"
-        backgroundImage="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2940&auto=format&fit=crop"
-      />
+        backgroundImage={tcp2}
+      >
+        <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
+          Contact Us
+        </Link>
+      </PageHero>
 
       {/* Main Content */}
       <section className="py-20">
@@ -63,15 +74,15 @@ const TestingCertification = () => {
               </div>
             </div>
             <div className="mt-12 lg:mt-0">
-               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop" alt="Testing Lab" className="w-full h-[500px] object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                    <div className="text-white">
-                      <p className="text-sm font-medium uppercase tracking-wider mb-2 text-brand-secondary">Advanced Lab</p>
-                      <h3 className="text-2xl font-bold">Cutting-edge facilities and expertise in both destructive and non-destructive testing techniques.</h3>
-                    </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop" alt="Testing Lab" className="w-full h-[500px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                  <div className="text-white">
+                    <p className="text-sm font-medium uppercase tracking-wider mb-2 text-brand-secondary">Advanced Lab</p>
+                    <h3 className="text-2xl font-bold">Cutting-edge facilities and expertise in both destructive and non-destructive testing techniques.</h3>
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -97,36 +108,36 @@ const TestingCertification = () => {
       </section>
 
       {/* Specialized Facility Highlight */}
-      <section className="py-20 bg-brand-primary text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-secondary/10 -skew-x-12 transform translate-x-20"></div>
+      <section className="py-20 bg-brand-dark text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 transform translate-x-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6 text-sm font-medium">
-                <Zap className="w-4 h-4 mr-2 text-brand-secondary" />
+                <Zap className="w-4 h-4 mr-2 text-brand-primary" />
                 Mechanical Testing Laboratory
               </div>
-              <h2 className="text-4xl font-bold mb-6">Real-World Condition Evaluation</h2>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Our mechanical testing laboratory is equipped with a <strong>carbon fiber zero-pressure tire building machine</strong>, enabling advanced evaluation of rubber and composite systems under real-world operating conditions.
+              <h2 className="text-4xl font-bold mb-6 italic tracking-tight uppercase">Real-World Condition Evaluation</h2>
+              <p className="text-xl text-gray-400 mb-8 leading-relaxed font-medium">
+                Our mechanical testing laboratory is equipped with a <span className="text-white font-black">carbon fiber zero-pressure tire building machine</span>, enabling advanced evaluation of rubber and composite systems under real-world operating conditions.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-brand-secondary mr-3"></div>
-                  <span>Advanced Performance Insights</span>
+                <div className="flex items-center group">
+                  <div className="w-2 h-2 rounded-full bg-brand-primary mr-3 group-hover:scale-150 transition-transform"></div>
+                  <span className="font-bold text-gray-300 group-hover:text-white transition-colors">Advanced Performance Insights</span>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-brand-secondary mr-3"></div>
-                  <span>Fatigue Life Analysis</span>
+                <div className="flex items-center group">
+                  <div className="w-2 h-2 rounded-full bg-brand-primary mr-3 group-hover:scale-150 transition-transform"></div>
+                  <span className="font-bold text-gray-300 group-hover:text-white transition-colors">Fatigue Life Analysis</span>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-brand-secondary mr-3"></div>
-                  <span>Structural Integrity Validation</span>
+                <div className="flex items-center group">
+                  <div className="w-2 h-2 rounded-full bg-brand-primary mr-3 group-hover:scale-150 transition-transform"></div>
+                  <span className="font-bold text-gray-300 group-hover:text-white transition-colors">Structural Integrity Validation</span>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1531266752426-adf4776427f3?q=80&w=2800&auto=format&fit=crop" alt="Tire Building Machine" className="rounded-2xl shadow-2xl border-4 border-white/10" />
+              <img src={tbm2} alt="Tire Building Machine" className="rounded-3xl shadow-2xl border-4 border-white/5" />
             </div>
           </div>
         </div>
@@ -139,7 +150,7 @@ const TestingCertification = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Inspected & Certified Machines</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">Providing rigorous inspection and certification services for specialized industrial equipment exported globally.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {caseStudies.map((study, idx) => (
               <div key={idx} className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-primary/20 transition-all flex flex-col md:flex-row">
@@ -163,8 +174,8 @@ const TestingCertification = () => {
         </div>
       </section>
 
-      <CtaSection 
-        title="Elevate Your Quality Assurance" 
+      <CtaSection
+        title="Elevate Your Quality Assurance"
         subtitle="Reach out today to leverage our trusted testing solutions for your next project."
       />
     </div>

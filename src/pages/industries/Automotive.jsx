@@ -6,8 +6,10 @@ import CtaSection from '../../components/CtaSection';
 import { Car, Wrench, Shield, Zap, CheckCircle2, ChevronRight, BarChart3, Settings } from 'lucide-react';
 
 const capabilities = [
-  { title: "Chassis & Suspension FEA", desc: "Structural analysis and dynamic load simulation for chassis components and suspension systems to optimize safety and durability." },
-  { title: "Tire Uniformity Verification", desc: "Integration of Poling Group final finish machines for high-precision uniformity and force-moment testing at production scale." },
+  // { title: "Chassis & Suspension FEA", desc: "Structural analysis and dynamic load simulation for chassis components and suspension systems to optimize safety and durability." },
+  // { title: "Tire Uniformity Verification", desc: "Integration of Poling Group final finish machines for high-precision uniformity and force-moment testing at production scale." },
+  { title: "Runflat & Military Inserts", desc: "Specialized engineering for runflat tire inserts used in military and armored vehicles requiring zero-pressure mobility." },
+  { title: "BIW (Body in White) Design", desc: "Complete 3D CAD and engineering from concept design through detailed production drawings for body structures." },
   { title: "Runflat & Military Inserts", desc: "Specialized engineering for runflat tire inserts used in military and armored vehicles requiring zero-pressure mobility." },
   { title: "BIW (Body in White) Design", desc: "Complete 3D CAD and engineering from concept design through detailed production drawings for body structures." },
   { title: "Non-Pneumatic Tires", desc: "Full lifecycle development of airless tire technology, including material selection, prototype testing, and production readiness." },
@@ -48,7 +50,7 @@ const Automotive = () => {
         backgroundImage="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2825&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Let's Talk!</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
           <Link to="/services/tyre-testing" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-4 px-10 rounded-lg font-bold hover:bg-white/20 transition-all text-lg">
             View Tyre Testing
           </Link>
@@ -85,8 +87,8 @@ const Automotive = () => {
                 By combining decades of hands-on experience with advanced CAD/CAM tools, FEA simulation, and world-class Poling Group testing equipment, AECS ensures that every component and tire product meets the most demanding industry benchmarks.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link to="/contact" className="btn-primary py-3 px-8 font-bold uppercase tracking-widest text-sm">Get a Quote</Link>
-                <Link to="/services/fea" className="btn-outline py-3 px-8 font-bold uppercase tracking-widest text-sm">View FEA Services</Link>
+                <Link to="/contact" className="btn-primary py-3 px-8 font-bold uppercase tracking-widest text-sm">Contact Us</Link>
+                {/* <Link to="/services/fea" className="btn-outline py-3 px-8 font-bold uppercase tracking-widest text-sm">View FEA Services</Link> */}
               </div>
             </motion.div>
 
@@ -163,7 +165,7 @@ const Automotive = () => {
             {[
               { code: "ISO 9001:2015", desc: "Quality Management" },
               { code: "IATF 16949", desc: "Automotive QMS" },
-              { code: "ECE R30 & R117", desc: "Tyre Safety Regs" },
+              // { code: "ECE R30 & R117", desc: "Tyre Safety Regs" },
               { code: "SAE Standards", desc: "Automotive Testing" }
             ].map((std, i) => (
               <div key={i} className="text-center p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-brand-primary transition-colors">

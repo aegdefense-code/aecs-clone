@@ -3,95 +3,92 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
-import { Car, Anchor, HeartPulse, Activity, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const industries = [
   {
     id: "automotive",
-    icon: <Car className="w-8 h-8 text-brand-primary" />,
+    image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2825&auto=format&fit=crop",
     title: "Automotive & Tires",
-    desc: "From BIW (Body in White) design to complete non-pneumatic tire development. We supply Poling Group machinery for final finish validation and engineered plastics for weight reduction.",
-    bullets: ["Chassis & Suspension FEA", "Tire Uniformity Verification", "Runflat Military Inserts"],
-    link: "/industries/automotive",
-    color: "brand-primary"
+    desc: "From BIW design to complete non-pneumatic tire development and machinery validation.",
+    link: "/industries/automotive"
   },
   {
     id: "marine",
-    icon: <Anchor className="w-8 h-8 text-blue-600" />,
+    image: "https://images.unsplash.com/photo-1543886566-6b22c7102e3b?q=80&w=2874&auto=format&fit=crop",
     title: "Marine Engineering",
-    desc: "Hydrodynamic simulations, hull stress analyses, and structural and fluid systems specifically designed for harsh marine environments and naval combat vessels.",
-    bullets: ["CFD Hull Analysis", "Propeller Reverse Engineering", "Onboard HVAC & Plumbing"],
-    link: "/industries/marine",
-    color: "blue-600"
+    desc: "Hydrodynamic simulations, hull stress analyses, and structural and fluid systems.",
+    link: "/industries/marine"
   },
   {
     id: "medical",
-    icon: <HeartPulse className="w-8 h-8 text-emerald-600" />,
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f3?q=80&w=2974&auto=format&fit=crop",
     title: "Medical Devices",
-    desc: "ISO 13485 compliant design processes. We manage the development of surgical enclosures, ergonomic tool handles, and biocompatible material selection.",
-    bullets: ["Ergonomic Concepting", "Injection Mold Design", "FDA Testing Prep"],
-    link: "/industries/medical",
-    color: "emerald-600"
+    desc: "ISO 13485 compliant design processes for surgical enclosures and ergonomic tools.",
+    link: "/industries/medical"
   },
   {
     id: "consumer",
-    icon: <Activity className="w-8 h-8 text-orange-500" />,
-    title: "Consumer & Sports",
-    desc: "Rapid consumer goods development utilizing 3D printing and quick-turn urethane casting to test market fit before scaling to millions in production.",
-    bullets: ["Wearables Development", "CPG Packaging Analysis", "High-Volume Sourcing"],
-    link: "/industries/consumer-sports",
-    color: "orange-500"
+    image: "https://images.unsplash.com/photo-1544117518-30dd5ff7a4b0?q=80&w=2938&auto=format&fit=crop",
+    title: "Wearables & Sports Tech",
+    desc: "Precision engineering for smartwatch integration, biometric wearables, and performance athletic gear.",
+    link: "/industries/consumer-sports"
   }
 ];
 
 const Industries = () => {
   return (
-    <div>
+    <div className="bg-white">
       <PageHero
         title="Industries We Serve"
         subtitle="Domain-Specific Engineering Solutions for the World's Most Demanding Sectors"
         backgroundImage="https://images.unsplash.com/photo-1508344928928-7137b29de216?q=80&w=2938&auto=format&fit=crop"
       />
 
-      <section className="py-24 bg-gray-50">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {industries.map((industry, index) => (
               <motion.div
                 key={industry.id}
-                id={industry.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 flex flex-col h-full hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 scroll-mt-24 group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group flex flex-col h-full bg-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 border border-gray-100 group-hover:scale-110 transition-transform">
-                  {industry.icon}
+                {/* 90% Image Height Container */}
+                <div className="relative aspect-[4/3] sm:aspect-[21/9] overflow-hidden">
+                  <img
+                    src={industry.image}
+                    alt={industry.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 uppercase tracking-tighter">{industry.title}</h3>
-                <p className="text-gray-600 mb-8 flex-grow font-medium leading-relaxed">{industry.desc}</p>
-                <ul className="space-y-2 text-sm font-bold text-gray-500 mb-10">
-                  {industry.bullets.map((bullet, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <ChevronRight className="w-4 h-4 text-brand-primary" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to={industry.link}
-                  className="inline-flex items-center justify-center gap-2 w-full py-4 bg-gray-50 text-brand-dark font-black text-sm uppercase tracking-widest rounded-2xl border border-gray-100 hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all duration-300"
-                >
-                  Explore {industry.title} <ChevronRight className="w-4 h-4" />
-                </Link>
+
+                <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                  <h3 className="text-xl lg:text-2xl font-black text-gray-900 mb-2 tracking-tighter uppercase italic">{industry.title}</h3>
+                  <p className="text-gray-600 text-base font-medium mb-4 leading-relaxed line-clamp-2">
+                    {industry.desc}
+                  </p>
+                  <div className="mt-auto">
+                    <Link
+                      to={industry.link}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary text-white font-black text-[10px] uppercase tracking-[0.2em] rounded-lg hover:bg-brand-dark transition-all duration-300 group/link shadow-md shadow-brand-primary/20"
+                    >
+                      Read More
+                      <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" strokeWidth={3} />
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <CtaSection title="Don't See Your Industry?" subtitle="Our foundational engineering principles (FEA, CAD, Materials) apply to virtually any physical product. Contact us to discuss your specific niche." />
+      <CtaSection title="Don't See Your Industry?" subtitle="Our foundational engineering principles apply to virtually any physical product. Contact us to discuss your specific niche." />
     </div>
   );
 };

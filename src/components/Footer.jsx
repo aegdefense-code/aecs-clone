@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-dark text-white pt-16 pb-8">
+    <footer className="bg-brand-dark text-white pt-16 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           
           <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col h-full">
             <div className="flex-1">
@@ -57,10 +58,10 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-4">Core Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Finite Element Analysis</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">New Product Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Mechanical Engineering Design</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Tire Testing Equipment</a></li>
+              <li><Link to="/services/fea" className="text-gray-400 hover:text-white text-sm transition-colors">Finite Element Analysis</Link></li>
+              <li><Link to="/services/npd" className="text-gray-400 hover:text-white text-sm transition-colors">New Product Development</Link></li>
+              <li><Link to="/services/design" className="text-gray-400 hover:text-white text-sm transition-colors">Mechanical Engineering Design</Link></li>
+              <li><Link to="/services/tyre-testing" className="text-gray-400 hover:text-white text-sm transition-colors">Tire Testing Equipment</Link></li>
             </ul>
           </div>
 
@@ -74,12 +75,34 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-4">Legal & Policies</h3>
+            <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-6">Legal & Policies</h3>
             <ul className="space-y-3">
               <li><Link to="/policies/merchant" className="text-gray-400 hover:text-white text-sm transition-colors">Merchant Policies</Link></li>
               <li><Link to="/policies/legal" className="text-gray-400 hover:text-white text-sm transition-colors">Legal Notice</Link></li>
               <li><Link to="/policies/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link></li>
               <li><Link to="/policies/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Use</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-6">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                <span className="text-gray-400 text-sm leading-relaxed">
+                  CC NO/54, 2593-6 (2nd FLOOR, STP Rd,<br />
+                  Kadavanthra P.O, Bose Nagar, Elamkulam,<br />
+                  Kochi, Kerala 682020, India
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-brand-primary shrink-0" />
+                <a href="tel:+919961585261" className="text-gray-400 hover:text-white text-sm transition-colors">+91 99615 85261</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-brand-primary shrink-0" />
+                <a href="mailto:info@aecs-india.com" className="text-gray-400 hover:text-white text-sm transition-colors">info@aecs-india.com</a>
+              </li>
             </ul>
           </div>
           

@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
-import { 
-  Layers, Activity, Maximize, Droplets, ShieldCheck, 
-  Settings, Zap, BarChart3, Search, AlertCircle, 
+import {
+  Layers, Activity, Maximize, Droplets, ShieldCheck,
+  Settings, Zap, BarChart3, Search, AlertCircle,
   FileText, Scale, Gavel, Cpu, CheckCircle2
 } from 'lucide-react';
 
 const FiniteElementAnalysis = () => {
   return (
     <div className="bg-white">
-      <PageHero 
-        title="Finite Element Analysis (FEA)" 
+      <PageHero
+        title="Finite Element Analysis (FEA)"
         subtitle="Predictive Physics and Advanced Simulation Services for Enhanced Reliability"
         backgroundImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Book an Appointment
+          Contact Us
         </Link>
       </PageHero>
 
@@ -39,12 +39,12 @@ const FiniteElementAnalysis = () => {
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop" 
-                alt="Advanced Engineering Simulation" 
-                className="rounded-2xl shadow-2xl border-8 border-white" 
+              <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop"
+                alt="Advanced Engineering Simulation"
+                className="rounded-2xl shadow-2xl border-8 border-white"
               />
-              <div 
+              <div
                 className="absolute -bottom-6 -left-6 text-white p-6 rounded-xl shadow-xl hidden md:block"
                 style={{ background: 'radial-gradient(ellipse at center, #dc2626 0%, #b91c1c 50%, #7f1d1d 100%)' }}
               >
@@ -87,112 +87,112 @@ const FiniteElementAnalysis = () => {
       {/* FEA Work & Optimization */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Finite Element Analysis Work</h2>
-                 <p className="text-gray-600 mb-8 leading-relaxed">
-                   Looking to minimize costs and improve your existing designs? For expert finite element analysis services, look no further. Our experienced engineers provide high-quality design and analysis services including FEA, CFD, and Mold-flow analysis.
-                 </p>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { icon: <Zap />, title: "Optimization Studies", desc: "Refining designs for max performance." },
-                      { icon: <BarChart3 />, title: "Trade-off Studies", desc: "Balancing weight, cost, and strength." },
-                      { icon: <Activity />, title: "Sensitivity Studies", desc: "Identifying critical design variables." },
-                      { icon: <Settings />, title: "Mold-flow Analysis", desc: "Optimizing the injection molding process." }
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start p-4 bg-gray-50 rounded-lg">
-                        <div className="text-brand-primary mr-3 mt-1">{React.cloneElement(item.icon, { className: 'w-5 h-5' })}</div>
-                        <div>
-                          <h4 className="font-bold text-sm text-gray-900">{item.title}</h4>
-                          <p className="text-xs text-gray-500">{item.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                 </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Finite Element Analysis Work</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Looking to minimize costs and improve your existing designs? For expert finite element analysis services, look no further. Our experienced engineers provide high-quality design and analysis services including FEA, CFD, and Mold-flow analysis.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { icon: <Zap />, title: "Optimization Studies", desc: "Refining designs for max performance." },
+                  { icon: <BarChart3 />, title: "Trade-off Studies", desc: "Balancing weight, cost, and strength." },
+                  { icon: <Activity />, title: "Sensitivity Studies", desc: "Identifying critical design variables." },
+                  { icon: <Settings />, title: "Mold-flow Analysis", desc: "Optimizing the injection molding process." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start p-4 bg-gray-50 rounded-lg">
+                    <div className="text-brand-primary mr-3 mt-1">{React.cloneElement(item.icon, { className: 'w-5 h-5' })}</div>
+                    <div>
+                      <h4 className="font-bold text-sm text-gray-900">{item.title}</h4>
+                      <p className="text-xs text-gray-500">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="bg-brand-dark p-8 md:p-12 rounded-3xl text-white shadow-2xl">
-                 <h3 className="text-2xl font-bold mb-6 flex items-center">
-                    <AlertCircle className="mr-3 text-orange-500" /> Root Cause Analysis
-                 </h3>
-                 <p className="text-gray-400 mb-8">
-                    In case of engineering failures, we provide in-depth root cause analysis using FEA, CFD, and testing services. Our expertise extends to critical legal and corporate support:
-                 </p>
-                 <ul className="space-y-4">
-                    {[
-                      { icon: <Search />, text: "Product Recall Engineering Investigations" },
-                      { icon: <Scale />, text: "Expert Witness Technical Testimony" },
-                      { icon: <Gavel />, text: "Litigation Technical Support" },
-                      { icon: <FileText />, text: "Patent Infringement Engineering Work" }
-                    ].map((li, idx) => (
-                      <li key={idx} className="flex items-center space-x-4 border-b border-white/10 pb-4">
-                        <div className="p-2 bg-white/5 rounded-lg text-brand-primary">
-                          {React.cloneElement(li.icon, { className: 'w-5 h-5' })}
-                        </div>
-                        <span className="font-medium">{li.text}</span>
-                      </li>
-                    ))}
-                 </ul>
-              </div>
-           </div>
+            </div>
+            <div className="bg-brand-dark p-8 md:p-12 rounded-3xl text-white shadow-2xl">
+              <h3 className="text-2xl font-bold mb-6 flex items-center">
+                <AlertCircle className="mr-3 text-orange-500" /> Root Cause Analysis
+              </h3>
+              <p className="text-gray-400 mb-8">
+                In case of engineering failures, we provide in-depth root cause analysis using FEA, CFD, and testing services. Our expertise extends to critical legal and corporate support:
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { icon: <Search />, text: "Product Recall Engineering Investigations" },
+                  { icon: <Scale />, text: "Expert Witness Technical Testimony" },
+                  { icon: <Gavel />, text: "Litigation Technical Support" },
+                  { icon: <FileText />, text: "Patent Infringement Engineering Work" }
+                ].map((li, idx) => (
+                  <li key={idx} className="flex items-center space-x-4 border-b border-white/10 pb-4">
+                    <div className="p-2 bg-white/5 rounded-lg text-brand-primary">
+                      {React.cloneElement(li.icon, { className: 'w-5 h-5' })}
+                    </div>
+                    <span className="font-medium">{li.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ABAQUS Capabilities */}
       <section className="py-20 bg-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-md">
-              <Cpu className="w-10 h-10 text-brand-primary" />
-           </div>
-           <h2 className="text-3xl font-bold text-gray-900 mb-6">Advanced Nonlinear Simulation with ABAQUS</h2>
-           <p className="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
-             Thanks to our mastery of ABAQUS software, we have the capabilities to handle even the most complex nonlinear situations—from viscoplasticity and creep to complex frictional contact mechanics.
-           </p>
-           
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                "Nonlinear Stress Analysis",
-                "Viscoplasticity & Creep",
-                "Nonlinear Buckling",
-                "Frictional Contact Mechanics",
-                "Geometrical Nonlinearity",
-                "Advanced Material Modeling"
-              ].map((cap, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-xl border border-blue-100 flex items-center shadow-sm">
-                   <div className="w-4 h-4 rounded-full bg-brand-primary mr-4 flex-shrink-0" />
-                   <span className="font-bold text-gray-800">{cap}</span>
-                </div>
-              ))}
-           </div>
+          <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-md">
+            <Cpu className="w-10 h-10 text-brand-primary" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Advanced Nonlinear Simulation with ABAQUS</h2>
+          <p className="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
+            Thanks to our mastery of ABAQUS software, we have the capabilities to handle even the most complex nonlinear situations—from viscoplasticity and creep to complex frictional contact mechanics.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              "Nonlinear Stress Analysis",
+              "Viscoplasticity & Creep",
+              "Nonlinear Buckling",
+              "Frictional Contact Mechanics",
+              "Geometrical Nonlinearity",
+              "Advanced Material Modeling"
+            ].map((cap, idx) => (
+              <div key={idx} className="bg-white p-5 rounded-xl border border-blue-100 flex items-center shadow-sm">
+                <div className="w-4 h-4 rounded-full bg-brand-primary mr-4 flex-shrink-0" />
+                <span className="font-bold text-gray-800">{cap}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Final Capability Summary */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div 
-              className="bg-red-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden"
-           >
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-              
-              <div className="relative z-10 max-w-3xl">
-                 <h2 className="text-3xl font-bold mb-6">AECS'S FEA Capability Summary</h2>
-                 <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                   Turning product designs into a reality for over two decades. Our team can handle any complex engineering challenge and accurately simulate real-world operating conditions before physical testing.
-                 </p>
-                 <div className="flex flex-wrap gap-4">
-                    <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
-                       <CheckCircle2 className="w-5 h-5 mr-2" /> 20+ Years Expertise
-                    </div>
-                    <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
-                       <CheckCircle2 className="w-5 h-5 mr-2" /> ABAQUS Mastery
-                    </div>
-                    <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
-                       <CheckCircle2 className="w-5 h-5 mr-2" /> Global Engineering
-                    </div>
-                 </div>
+          <div
+            className="bg-red-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden"
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+
+            <div className="relative z-10 max-w-3xl">
+              <h2 className="text-3xl font-bold mb-6">AECS'S FEA Capability Summary</h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                Turning product designs into a reality for over two decades. Our team can handle any complex engineering challenge and accurately simulate real-world operating conditions before physical testing.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                  <CheckCircle2 className="w-5 h-5 mr-2" /> 20+ Years Expertise
+                </div>
+                <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                  <CheckCircle2 className="w-5 h-5 mr-2" /> ABAQUS Mastery
+                </div>
+                <div className="flex items-center bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                  <CheckCircle2 className="w-5 h-5 mr-2" /> Global Engineering
+                </div>
               </div>
-           </div>
+            </div>
+          </div>
         </div>
       </section>
 

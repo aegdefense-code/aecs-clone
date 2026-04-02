@@ -6,11 +6,11 @@ import CtaSection from '../../components/CtaSection';
 import { Anchor, Waves, Settings, ShieldCheck, CheckCircle2, ChevronRight } from 'lucide-react';
 
 const capabilities = [
-  { title: "CFD Hull Analysis", desc: "Advanced computational fluid dynamics simulations to optimize hydrodynamic performance and reduce fuel consumption." },
-  { title: "Propeller Reverse Engineering", desc: "Precise 3D scanning and CAD reconstruction of existing propellers for performance analysis or accurate replacement." },
-  { title: "Onboard HVAC & Plumbing", desc: "Engineering of climate control and fluid systems built to withstand corrosion, vibration, and harsh marine environments." },
-  { title: "Pneumatic Fender Design", desc: "Design, analysis, and testing of ISO 17357-compliant marine fenders for safe port and vessel-to-vessel docking." },
-  { title: "Structural Hull Design", desc: "Detailed finite element analysis (FEA) of hull structures for stress distribution, fatigue life, and wave impact loads." },
+  // { title: "CFD Hull Analysis", desc: "Advanced computational fluid dynamics simulations to optimize hydrodynamic performance and reduce fuel consumption." },
+  // { title: "Propeller Reverse Engineering", desc: "Precise 3D scanning and CAD reconstruction of existing propellers for performance analysis or accurate replacement." },
+  // { title: "Onboard HVAC & Plumbing", desc: "Engineering of climate control and fluid systems built to withstand corrosion, vibration, and harsh marine environments." },
+  // { title: "Pneumatic Fender Design", desc: "Design, analysis, and testing of ISO 17357-compliant marine fenders for safe port and vessel-to-vessel docking." },
+  // { title: "Structural Hull Design", desc: "Detailed finite element analysis (FEA) of hull structures for stress distribution, fatigue life, and wave impact loads." },
   { title: "Naval & Offshore Systems", desc: "Specialized engineering for naval combat vessels and offshore platforms requiring extreme structural integrity." }
 ];
 
@@ -27,11 +27,11 @@ const projects = [
     desc: "AECS has executed government contract projects for the design and manufacturing of industrial fenders, meeting stringent regulatory and performance requirements.",
     points: ["ISO 17357 compliance", "Rubber material engineering", "Performance testing & certification"]
   },
-  {
-    title: "Naval Vessel Engineering",
-    desc: "Structural and fluid systems engineering specifically designed for naval combat vessels, including specialized hull modifications and equipment integration.",
-    points: ["Hydrodynamic drag reduction", "Hull stress analysis under combat loads", "Propulsion system optimization"]
-  },
+  // {
+  //   title: "Naval Vessel Engineering",
+  //   desc: "Structural and fluid systems engineering specifically designed for naval combat vessels, including specialized hull modifications and equipment integration.",
+  //   points: ["Hydrodynamic drag reduction", "Hull stress analysis under combat loads", "Propulsion system optimization"]
+  // },
   {
     title: "Marine Product Development",
     desc: "Full NPD support for marine products—from concept design and 3D CAD models to prototype manufacturing and functional test-ready assemblies.",
@@ -48,7 +48,7 @@ const Marine = () => {
         backgroundImage="https://images.unsplash.com/photo-1543886566-6b22c7102e3b?q=80&w=2874&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Let's Talk!</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
         </div>
       </PageHero>
 
@@ -159,7 +159,7 @@ const Marine = () => {
             {[
               { code: "ISO 17357", desc: "Pneumatic Fenders" },
               { code: "ISO 9001", desc: "Quality Management" },
-              { code: "MARPOL", desc: "Marine Pollution Regs" },
+              // { code: "MARPOL", desc: "Marine Pollution Regs" },
               { code: "SOLAS", desc: "Ship Safety Standards" }
             ].map((std, i) => (
               <div key={i} className="text-center p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-blue-600 transition-colors">

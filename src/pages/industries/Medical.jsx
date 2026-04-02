@@ -31,7 +31,7 @@ const Medical = () => {
         backgroundImage="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?q=80&w=2974&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Let's Talk!</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
         </div>
       </PageHero>
 

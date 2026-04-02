@@ -1,41 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
-  const [materialsOpen, setMaterialsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  // Separate states for dropdown visibility
+  const [showServices, setShowServices] = useState(false);
+  const [showIndustries, setShowIndustries] = useState(false);
+  const [showMaterials, setShowMaterials] = useState(false);
+  
   const location = useLocation();
 
-  // If we're not on the home page, we want the navbar to always have a solid background
-  const isHomePage = location.pathname === '/';
+  // Highlight active path logic to avoid hardcoded bg on service pages
+  const isHome = location.pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-    };
-
-    // Initial check
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    // Threshold set to 80px for a smoother transition on most devices
+    const offset = window.scrollY;
+    if (offset > 80) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
   }, []);
 
-  const navbarSolid = !isHomePage || scrolled;
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About AECS', path: '/about' },
-    { name: 'Industries', path: '/industries' },
-    { name: 'Generative AI', path: '/ai' },
-    { name: 'Resources', path: '/resources' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  const isSolid = !isHome || hasScrolled;
 
   const serviceLinks = [
     { name: 'Product Manufacturing', path: '/services/product-manufacturing' },
@@ -44,14 +41,14 @@ const Navbar = () => {
     { name: 'Mechanical Engineering Design', path: '/services/design' },
     { name: 'Manufacturing & Rapid Prototyping', path: '/services/prototyping' },
     { name: 'Testing, Inspection & Certification', path: '/services/testing' },
-    { name: 'Tyre Testing Machines-Marketing, Sales & Servicing', path: '/services/tyre-testing' },
+    { name: 'Tyre Testing Machines', path: '/services/tyre-testing' },
   ];
 
   const industryLinks = [
     { name: 'Automotive & Tires', path: '/industries/automotive' },
     { name: 'Marine Engineering', path: '/industries/marine' },
     { name: 'Medical Devices', path: '/industries/medical' },
-    { name: 'Consumer & Sports', path: '/industries/consumer' },
+    { name: 'Consumer & Sports', path: '/industries/consumer-sports' },
   ];
 
   const materialLinks = [
@@ -60,46 +57,53 @@ const Navbar = () => {
     { name: 'Composite', path: '/materials/composite' },
   ];
 
+  // Helper to close all menus on navigation
+  const closeAllMenus = () => {
+    setIsMobileMenuOpen(false);
+    setShowServices(false);
+    setShowIndustries(false);
+    setShowMaterials(false);
+  };
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${navbarSolid ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isSolid ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group" onClick={closeAllMenus}>
               <div className="flex items-center justify-center">
                 <img src={logo} alt="AECS Logo" className="h-14 sm:h-16 w-auto object-contain" />
               </div>
-              <span className={`ml-4 text-sm md:text-xl font-bold tracking-tight hidden sm:block ${navbarSolid ? 'text-gray-900' : 'text-gray-100'}`}>
+              <span className={`ml-4 text-sm md:text-xl font-bold tracking-tight hidden sm:block ${isSolid ? 'text-slate-900' : 'text-white'}`}>
                 American Engineering Consultancy Services
               </span>
             </Link>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex space-x-6 items-center">
-            <Link to="/" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
+            <Link to="/" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
               Home
             </Link>
 
-            {/* Services Dropdown */}
+            {/* Services Mega-Dropdown behavior */}
             <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              className="relative group/dropdown"
+              onMouseEnter={() => setShowServices(true)}
+              onMouseLeave={() => setShowServices(false)}
             >
-              <Link to="/services" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
-                Services <ChevronDown size={16} className={`ml-1 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              <Link to="/services" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
+                Services <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showServices ? 'rotate-180' : ''}`} />
               </Link>
 
-              {/* Dropdown Menu */}
-              {servicesOpen && (
-                <div className="absolute top-full left-0 w-64 pt-1">
-                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-2">
+              {showServices && (
+                <div className="absolute top-full left-0 w-64 pt-2">
+                  <div className="rounded-lg shadow-xl bg-white ring-1 ring-black/5 py-3 overflow-hidden animate-in fade-in slide-in-from-top-1">
                     {serviceLinks.map((link) => (
                       <Link
                         key={link.path}
                         to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-colors"
+                        className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-all"
                       >
                         {link.name}
                       </Link>
@@ -111,23 +115,22 @@ const Navbar = () => {
 
             {/* Industries Dropdown */}
             <div
-              className="relative"
-              onMouseEnter={() => setIndustriesOpen(true)}
-              onMouseLeave={() => setIndustriesOpen(false)}
+              className="relative group/dropdown"
+              onMouseEnter={() => setShowIndustries(true)}
+              onMouseLeave={() => setShowIndustries(false)}
             >
-              <Link to="/industries" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
-                Industries <ChevronDown size={16} className={`ml-1 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} />
+              <Link to="/industries" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
+                Industries <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showIndustries ? 'rotate-180' : ''}`} />
               </Link>
 
-              {/* Dropdown Menu */}
-              {industriesOpen && (
-                <div className="absolute top-full left-0 w-56 pt-1">
-                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-2">
+              {showIndustries && (
+                <div className="absolute top-full left-0 w-56 pt-2">
+                  <div className="rounded-lg shadow-xl bg-white ring-1 ring-black/5 py-3 animate-in fade-in slide-in-from-top-1">
                     {industryLinks.map((link) => (
                       <Link
                         key={link.path}
                         to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-colors"
+                        className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-all"
                       >
                         {link.name}
                       </Link>
@@ -136,25 +139,25 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* Materials Dropdown */}
+
+            {/* Materials Section */}
             <div
-              className="relative"
-              onMouseEnter={() => setMaterialsOpen(true)}
-              onMouseLeave={() => setMaterialsOpen(false)}
+              className="relative group/dropdown"
+              onMouseEnter={() => setShowMaterials(true)}
+              onMouseLeave={() => setShowMaterials(false)}
             >
-              <Link to="/materials" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
-                Materials <ChevronDown size={16} className={`ml-1 transition-transform ${materialsOpen ? 'rotate-180' : ''}`} />
+              <Link to="/materials" className={`flex items-center text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
+                Materials <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showMaterials ? 'rotate-180' : ''}`} />
               </Link>
 
-              {/* Dropdown Menu */}
-              {materialsOpen && (
-                <div className="absolute top-full left-0 w-48 pt-1">
-                  <div className="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-2">
+              {showMaterials && (
+                <div className="absolute top-full left-0 w-48 pt-2">
+                  <div className="rounded-lg shadow-xl bg-white ring-1 ring-black/5 py-3 animate-in fade-in slide-in-from-top-1">
                     {materialLinks.map((link) => (
                       <Link
                         key={link.path}
                         to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-colors"
+                        className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-brand-primary hover:text-white transition-all"
                       >
                         {link.name}
                       </Link>
@@ -164,47 +167,48 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/resources" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
+            <Link to="/resources" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
               Resources
             </Link>
 
-            <Link to="/about" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${navbarSolid ? 'text-gray-700' : 'text-white'}`}>
+            <Link to="/about" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
               About Us
             </Link>
 
-            <Link to="/contact" className="btn-primary py-2 px-4 shadow-sm text-sm">
-              Get in Touch
+            <Link to="/contact" className="btn-primary py-2.5 px-6 shadow-sm text-sm font-semibold tracking-wide">
+              Contact Us
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
+            {/* TODO: Optimize hit area for mobile toggle */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md ${navbarSolid ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-lg transition-colors ${isSolid ? 'text-gray-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'}`}
+              aria-label="Toggle navigation menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden bg-white shadow-xl absolute w-full top-full left-0 max-h-[80vh] overflow-y-auto border-t border-gray-100">
-          <div className="px-4 py-3 space-y-1">
-            <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-brand-primary hover:bg-gray-50 rounded-md" onClick={() => setIsOpen(false)}>Home</Link>
+      {/* Mobile Sidebar/Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white shadow-2xl absolute w-full top-full left-0 max-h-[85vh] overflow-y-auto border-t border-slate-100 animate-in slide-in-from-top duration-300">
+          <div className="px-5 py-6 space-y-2">
+            <Link to="/" className="block px-3 py-3 text-lg font-semibold text-slate-800 hover:text-brand-primary hover:bg-slate-50 rounded-lg" onClick={closeAllMenus}>Home</Link>
 
-            {/* Mobile Services Links */}
-            <div className="pl-3 py-2">
-              <Link to="/services" className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 block w-full hover:text-brand-primary" onClick={() => setIsOpen(false)}>Services</Link>
-              <div className="space-y-1 pl-2 border-l-2 border-brand-primary/20">
+            {/* Mobile Navigation Groups */}
+            <div className="pt-4 pb-2">
+              <span className="px-3 text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4 block">Our Services</span>
+              <div className="space-y-1 mt-3 pl-1 border-l-2 border-brand-primary/10">
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-white hover:bg-brand-primary rounded-md transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
+                    onClick={closeAllMenus}
                   >
                     {link.name}
                   </Link>
@@ -212,32 +216,15 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Industries Links */}
-            <div className="pl-3 py-2">
-              <Link to="/industries" className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 block w-full hover:text-brand-primary" onClick={() => setIsOpen(false)}>Industries</Link>
-              <div className="space-y-1 pl-2 border-l-2 border-brand-primary/20">
+            <div className="pt-4 pb-2">
+              <span className="px-3 text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4 block">Key Industries</span>
+              <div className="grid grid-cols-1 gap-1">
                 {industryLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-white hover:bg-brand-primary rounded-md transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            {/* Mobile Materials Links */}
-            <div className="pl-3 py-2">
-              <Link to="/materials" className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 block w-full hover:text-brand-primary" onClick={() => setIsOpen(false)}>Materials</Link>
-              <div className="space-y-1 pl-2 border-l-2 border-brand-primary/20">
-                {materialLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-white hover:bg-brand-primary rounded-md transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-slate-50 rounded-lg"
+                    onClick={closeAllMenus}
                   >
                     {link.name}
                   </Link>
@@ -245,10 +232,11 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link to="/resources" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-brand-primary hover:bg-gray-50 rounded-md" onClick={() => setIsOpen(false)}>Resources</Link>
-
-            <Link to="/about" className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-brand-primary hover:bg-gray-50 rounded-md" onClick={() => setIsOpen(false)}>About Us</Link>
-            <Link to="/contact" className="block px-3 py-2 text-base font-medium text-brand-primary hover:bg-gray-50 rounded-md" onClick={() => setIsOpen(false)}>Get in Touch</Link>
+            <div className="pt-6 pb-4 border-t border-slate-100 flex flex-col gap-4">
+              <Link to="/resources" className="px-3 text-base font-semibold text-slate-700" onClick={closeAllMenus}>Knowledge Hub</Link>
+              <Link to="/about" className="px-3 text-base font-semibold text-slate-700" onClick={closeAllMenus}>Our Story</Link>
+              <Link to="/contact" className="btn-primary w-full text-center py-4 rounded-xl text-lg font-bold" onClick={closeAllMenus}>Start a Project</Link>
+            </div>
           </div>
         </div>
       )}
@@ -257,3 +245,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

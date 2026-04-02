@@ -25,12 +25,12 @@ const ConsumerSports = () => {
   return (
     <div className="bg-white">
       <PageHero
-        title="Consumer & Sports Engineering"
-        subtitle="Rapid product development using 3D printing, quick-turn casting, and expert sourcing—from concept to market-ready production in record time."
-        backgroundImage="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?q=80&w=2970&auto=format&fit=crop"
+        title="Wearables & Sports Technology"
+        subtitle="Precision engineering for biometric sensors, smartwatches, and high-performance athletic equipment."
+        backgroundImage="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2940&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Let's Talk!</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
           <Link to="/services/prototyping" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-4 px-10 rounded-lg font-bold hover:bg-white/20 transition-all text-lg">
             View Prototyping
           </Link>
@@ -64,12 +64,12 @@ const ConsumerSports = () => {
               <div className="inline-flex items-center px-4 py-1 rounded-full bg-orange-50 text-orange-600 text-sm font-bold mb-6 border border-orange-100 uppercase tracking-widest text-[10px]">
                 Industry Overview
               </div>
-              <h2 className="text-4xl font-black text-gray-900 mb-8 tracking-tight">Fast-Track <span className="text-orange-600">Consumer Product Development</span></h2>
+              <h2 className="text-4xl font-black text-gray-900 mb-8 tracking-tight">Precision <span className="text-orange-600">Wearable Engineering</span></h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed font-medium">
-                AECS delivers rapid consumer goods development utilizing 3D printing and quick-turn urethane casting to test market fit before scaling to millions in production. Our capabilities span generating marketing illustrations, 3D CAD models, high-quality renderings, physical models, and fully functional prototypes.
+                AECS delivers advanced engineering for the wearables and sports technology sector, focusing on biometric sensor integration, ergonomic smartwatch enclosures, and high-performance athletic gear. We combine precision mechanical design with rapid prototyping to bring innovative sports tech to market faster.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                Whether you're an inventor with a breakthrough concept or an established CPG brand looking to reduce time to market, AECS provides the engineering backbone to validate, iterate, and scale your product efficiently.
+                From perfecting the haptics of a smartwatch crown to simulating the structural integrity of professional-grade training equipment, our team ensures your athletic product performs at the highest level of competition.
               </p>
               <div className="mt-10">
                 <Link to="/contact" className="btn-primary py-3 px-8 font-bold uppercase tracking-widest text-sm">Start a Consumer Project</Link>

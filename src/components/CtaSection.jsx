@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const CtaSection = ({ title = "Ready to Discuss Your Next Project?", subtitle = "Our engineering team is ready to analyze your requirements and provide innovative, scalable solutions.", buttonText = "Get in Touch Today", buttonLink = "/contact" }) => {
+const CtaSection = ({ title = "Ready to Discuss Your Next Project?", subtitle = "Our engineering team is ready to analyze your requirements and provide innovative, scalable solutions.", buttonText = "Contact Us", buttonLink = "/contact" }) => {
   return (
     <section 
       className="py-20 relative overflow-hidden"

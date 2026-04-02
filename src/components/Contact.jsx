@@ -98,7 +98,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="ml-6">
-                  <h3 className="text-xl font-bold text-gray-900">Headquarters</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Office</h3>
                   <p className="mt-2 text-gray-600">
                     CC NO/54,2593-6 (2nd FLOOR, STP Rd,<br />
                     Kadavanthra P.O, Bose Nagar, Elamkulam,<br />
@@ -132,9 +132,6 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-gray-900">Email Inquiries</h3>
                   <a href="mailto:info@aecs-india.com" className="mt-2 block text-brand-primary hover:underline">
                     info@aecs-india.com
-                  </a>
-                  <a href="mailto:support@aecs-india.com" className="block text-brand-primary hover:underline">
-                    careers@aecs-india.com
                   </a>
                 </div>
               </div>

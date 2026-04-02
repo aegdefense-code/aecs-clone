@@ -49,7 +49,7 @@ const NewProductDevelopment = () => {
         backgroundImage="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2940&auto=format&fit=crop"
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Book an Appointment
+          Contact Us
         </Link>
       </PageHero>
 

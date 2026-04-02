@@ -33,6 +33,14 @@
   .btn-outline {
     @apply inline-flex items-center justify-center px-6 py-3 border-2 border-brand-primary text-base font-medium rounded-md text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white transition-colors duration-300;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Engineering Grid Enhancements */
