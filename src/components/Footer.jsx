@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-brand-dark text-white pt-16 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          
+
           <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col h-full">
             <div className="flex-1">
               <Link to="/" className="flex items-center gap-4 mb-8 group">
@@ -58,10 +58,10 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-4">Core Services</h3>
             <ul className="space-y-3">
+              <li><Link to="/services/tyre-testing" className="text-gray-400 hover:text-white text-sm transition-colors">Tire Testing Equipment</Link></li>
               <li><Link to="/services/fea" className="text-gray-400 hover:text-white text-sm transition-colors">Finite Element Analysis</Link></li>
               <li><Link to="/services/npd" className="text-gray-400 hover:text-white text-sm transition-colors">New Product Development</Link></li>
               <li><Link to="/services/design" className="text-gray-400 hover:text-white text-sm transition-colors">Mechanical Engineering Design</Link></li>
-              <li><Link to="/services/tyre-testing" className="text-gray-400 hover:text-white text-sm transition-colors">Tire Testing Equipment</Link></li>
             </ul>
           </div>
 
@@ -88,7 +88,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
                 <span className="text-gray-400 text-sm leading-relaxed">
                   CC NO/54, 2593-6 (2nd FLOOR, STP Rd,<br />
                   Kadavanthra P.O, Bose Nagar, Elamkulam,<br />
@@ -96,18 +96,18 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-brand-primary shrink-0" />
+                <Phone className="w-5 h-5 text-white shrink-0" />
                 <a href="tel:+919961585261" className="text-gray-400 hover:text-white text-sm transition-colors">+91 99615 85261</a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-brand-primary shrink-0" />
+                <Mail className="w-5 h-5 text-white shrink-0" />
                 <a href="mailto:info@aecs-india.com" className="text-gray-400 hover:text-white text-sm transition-colors">info@aecs-india.com</a>
               </li>
             </ul>
           </div>
-          
+
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} American Engineering Consultancy Services LLP. All rights reserved.</p>
           <p className="mt-4 md:mt-0">Inspired design and architecture by AECS.</p>

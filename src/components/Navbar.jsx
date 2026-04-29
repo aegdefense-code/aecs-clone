@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
@@ -10,6 +11,11 @@ const Navbar = () => {
   const [showServices, setShowServices] = useState(false);
   const [showIndustries, setShowIndustries] = useState(false);
   const [showMaterials, setShowMaterials] = useState(false);
+
+  // Separate states for mobile dropdown visibility
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [mobileMaterialsOpen, setMobileMaterialsOpen] = useState(false);
   
   const location = useLocation();
 
@@ -63,6 +69,9 @@ const Navbar = () => {
     setShowServices(false);
     setShowIndustries(false);
     setShowMaterials(false);
+    setMobileServicesOpen(false);
+    setMobileIndustriesOpen(false);
+    setMobileMaterialsOpen(false);
   };
 
   return (
@@ -194,52 +203,125 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Sidebar/Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-2xl absolute w-full top-full left-0 max-h-[85vh] overflow-y-auto border-t border-slate-100 animate-in slide-in-from-top duration-300">
-          <div className="px-5 py-6 space-y-2">
-            <Link to="/" className="block px-3 py-3 text-lg font-semibold text-slate-800 hover:text-brand-primary hover:bg-slate-50 rounded-lg" onClick={closeAllMenus}>Home</Link>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-white shadow-2xl absolute w-full top-full left-0 max-h-[85vh] overflow-y-auto border-t border-slate-100 overflow-hidden"
+          >
+            <div className="px-5 py-6 space-y-1">
+              <Link to="/" className="block px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors" onClick={closeAllMenus}>Home</Link>
 
-            {/* Mobile Navigation Groups */}
-            <div className="pt-4 pb-2">
-              <span className="px-3 text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4 block">Our Services</span>
-              <div className="space-y-1 mt-3 pl-1 border-l-2 border-brand-primary/10">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block px-4 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
-                    onClick={closeAllMenus}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+              {/* Mobile Navigation Groups */}
+              
+              {/* Services Dropdown */}
+              <div className="pt-1">
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="w-full flex items-center justify-between px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors"
+                >
+                  Services
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden pl-1 border-l-2 border-brand-primary/10 ml-4 mt-1"
+                    >
+                      {serviceLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-6 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
+                          onClick={closeAllMenus}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries Dropdown */}
+              <div className="pt-1">
+                <button
+                  onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                  className="w-full flex items-center justify-between px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors"
+                >
+                  Industries
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${mobileIndustriesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileIndustriesOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden pl-1 border-l-2 border-brand-primary/10 ml-4 mt-1"
+                    >
+                      {industryLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-6 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
+                          onClick={closeAllMenus}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Materials Dropdown */}
+              <div className="pt-1">
+                <button
+                  onClick={() => setMobileMaterialsOpen(!mobileMaterialsOpen)}
+                  className="w-full flex items-center justify-between px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors"
+                >
+                  Materials
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${mobileMaterialsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileMaterialsOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden pl-1 border-l-2 border-brand-primary/10 ml-4 mt-1"
+                    >
+                      {materialLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-6 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
+                          onClick={closeAllMenus}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="pt-4 pb-4 flex flex-col">
+                <Link to="/resources" className="px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors" onClick={closeAllMenus}>Resources</Link>
+                <Link to="/about" className="px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors" onClick={closeAllMenus}>About Us</Link>
+                <Link to="/contact" className="btn-primary w-full text-center py-4 rounded-xl text-lg font-black uppercase tracking-widest mt-6" onClick={closeAllMenus}>Contact Us</Link>
               </div>
             </div>
-
-            <div className="pt-4 pb-2">
-              <span className="px-3 text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4 block">Key Industries</span>
-              <div className="grid grid-cols-1 gap-1">
-                {industryLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block px-3 py-3 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-slate-50 rounded-lg"
-                    onClick={closeAllMenus}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-6 pb-4 border-t border-slate-100 flex flex-col gap-4">
-              <Link to="/resources" className="px-3 text-base font-semibold text-slate-700" onClick={closeAllMenus}>Knowledge Hub</Link>
-              <Link to="/about" className="px-3 text-base font-semibold text-slate-700" onClick={closeAllMenus}>Our Story</Link>
-              <Link to="/contact" className="btn-primary w-full text-center py-4 rounded-xl text-lg font-bold" onClick={closeAllMenus}>Start a Project</Link>
-            </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

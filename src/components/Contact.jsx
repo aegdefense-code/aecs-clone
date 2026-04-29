@@ -6,9 +6,36 @@ import { useForm } from 'react-hook-form';
 const Contact = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   
-  const onSubmit = (data) => {
-    console.log("Form Submitted:", data);
-    alert("Message sent successfully!");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState(null);
+
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
+    try {
+      // Target the AWS Lambda endpoint (relative path assumes Vite proxy or standard API Gateway routing)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log("Submission Result:", result);
+      setSubmitStatus('success');
+    } catch (error) {
+      console.error("Form Submission Error:", error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <section id="contact" className="section-padding bg-white">
@@ -59,16 +86,7 @@ const Contact = () => {
                 {errors.email && <span className="text-red-500 text-xs">This field is required</span>}
               </div>
               
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700">Service Required</label>
-                <select {...register("service")} id="service" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary sm:text-sm px-4 py-3 border bg-white">
-                  <option value="manufacturing">Product Manufacturing</option>
-                  <option value="fea">Finite Element Analysis</option>
-                  <option value="npd">New Product Development</option>
-                  <option value="testing">Testing & Certification</option>
-                  <option value="other">Other / General Inquiry</option>
-                </select>
-              </div>
+
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message Details</label>
@@ -76,9 +94,20 @@ const Contact = () => {
                 {errors.message && <span className="text-red-500 text-xs">This field is required</span>}
               </div>
 
-              <button type="submit" className="w-full btn-primary text-lg">
-                Send Message
+              <button type="submit" disabled={isSubmitting} className={`w-full btn-primary text-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-md border border-green-200 text-sm">
+                  Your inquiry has been submitted securely. Our engineering team will contact you shortly.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 bg-red-50 text-red-800 rounded-md border border-red-200 text-sm">
+                  There was an error submitting your form. Please try again later.
+                </div>
+              )}
             </form>
           </motion.div>
 

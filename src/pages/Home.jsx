@@ -61,7 +61,7 @@ const Home = () => {
             <div className="container mx-auto px-4 mb-6 sm:mb-8 text-center">
                <span className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-[0.3em]">Globally Recognized Partners</span>
             </div>
-            
+
             <div className="flex items-center h-16 sm:h-24">
                <motion.div
                   className="flex absolute left-0 w-max gap-12 md:gap-32 px-8 md:px-32 items-center"
@@ -69,17 +69,17 @@ const Home = () => {
                   transition={{ ease: "linear", duration: 30, repeat: Infinity }}
                >
                   {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
-                     <img 
-                        key={`${logo.name}-${idx}`} 
-                        src={logo.url} 
-                        alt={`${logo.name} logo`} 
-                        className={`${logo.height} grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 object-contain`} 
+                     <img
+                        key={`${logo.name}-${idx}`}
+                        src={logo.url}
+                        alt={`${logo.name} logo`}
+                        className={`${logo.height} grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 object-contain`}
                      />
                   ))}
                </motion.div>
             </div>
-         </section>
-         */}
+         </section> */}
+
 
          <About />
          <Services />
@@ -96,8 +96,8 @@ const Home = () => {
 
                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10">
                   {keyDifferentiators.map((feature, featureIndex) => (
-                     <motion.div 
-                        key={featureIndex} 
+                     <motion.div
+                        key={featureIndex}
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -130,7 +130,7 @@ const Home = () => {
                      { img: pneumaticFenderImg, title: "Pneumatic Fender", cat: "Marine Engineering" },
                      { img: airlessTireImg, title: "Airless Tire", cat: "Sustainable Mobility" }
                   ].map((project, pIdx) => (
-                     <motion.div 
+                     <motion.div
                         key={pIdx}
                         whileHover={{ y: -10 }}
                         className="group rounded-3xl overflow-hidden cursor-pointer relative aspect-[3/4]"
@@ -179,19 +179,19 @@ const Home = () => {
 
                   <div className="order-1 md:order-2">
                      <h3 className="text-3xl font-black text-slate-900 mb-10">Research & Academic Alliances</h3>
-                     
+
                      <div className="grid grid-cols-1 xl:grid-cols-1 gap-6">
                         <div className="space-y-4">
                            {[
-                              { 
-                                 logo: "https://www.svnit.ac.in/images/logo.png", 
-                                 name: "Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat", 
-                                 role: "Academic Partner" 
+                              {
+                                 logo: "https://www.svnit.ac.in/images/logo.png",
+                                 name: "Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat",
+                                 role: "Academic Partner"
                               },
-                              { 
-                                 logo: "https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png", 
-                                 name: "APJ Abdul Kalam Technological University (KTU), Kerala", 
-                                 role: "Research Partner" 
+                              {
+                                 logo: "https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png",
+                                 name: "APJ Abdul Kalam Technological University (KTU), Kerala",
+                                 role: "Research Partner"
                               }
                            ].map((partner, pIdx) => (
                               <div key={pIdx} className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center group hover:border-brand-primary transition-colors">
@@ -205,22 +205,38 @@ const Home = () => {
                               </div>
                            ))}
                         </div>
-
-                        <div className="mt-8 bg-brand-primary text-white p-10 rounded-3xl shadow-xl relative overflow-hidden group">
-                           {/* Decorative background element - human touch */}
-                           <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
-                           <p className="relative z-10 text-xl font-bold leading-relaxed italic opacity-90">
-                              "We actively collaborate with premier engineering institutions to drive innovation and provide specialized PBL (Project Based Learning) for AI integrated engineering programs."
-                           </p>
-                           <div className="mt-8 flex items-center gap-3">
-                              <div className="w-8 h-1 bg-white/20 rounded-full"></div>
-                              <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-50">Leadership Vision</span>
-                           </div>
-                        </div>
                      </div>
                   </div>
 
                </div>
+            </div>
+         </section>
+
+         {/* Leadership Vision - Edge-to-Edge Banner */}
+         <section className="bg-gradient-to-br from-brand-primary via-brand-primary to-red-800 text-white relative overflow-hidden py-8">
+            {/* Decorative background element - human touch */}
+            <div className="absolute -top-10 -right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-1000"></div>
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+               <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+               >
+                  <div className="max-w-4xl mx-auto">
+                     <p className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight italic opacity-95">
+                        "We actively collaborate with premier engineering institutions to drive innovation and provide specialized <span className="text-brand-secondary underline decoration-brand-secondary/30 underline-offset-8 font-extrabold">PBL (Project Based Learning)</span> for AI integrated engineering programs."
+                     </p>
+
+                     <div className="mt-12 flex items-center justify-center gap-4">
+                        <div className="w-12 h-1 bg-white/20 rounded-full"></div>
+                        <span className="text-xs font-black uppercase tracking-[0.4em] text-white/60">Leadership Vision</span>
+                        <div className="w-12 h-1 bg-white/20 rounded-full"></div>
+                     </div>
+                  </div>
+               </motion.div>
             </div>
          </section>
 

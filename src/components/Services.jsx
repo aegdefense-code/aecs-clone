@@ -184,7 +184,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.4, delay: 0.8 }}
-            className="hidden xl:flex items-center justify-center p-8 bg-brand-primary rounded-lg text-white shadow-lg overflow-hidden relative group"
+            className="flex items-center justify-center p-8 bg-brand-primary rounded-lg text-white shadow-lg overflow-hidden relative group min-h-[300px]"
           >
             <EngineeringCarousel />
           </motion.div>
