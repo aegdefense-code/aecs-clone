@@ -111,6 +111,7 @@ import fm1 from '../../assets/images/machines/tyre-testing/fm-1.jpg';
 import fm2 from '../../assets/images/machines/tyre-testing/fm-2.jpg';
 import fm3 from '../../assets/images/machines/tyre-testing/fm-3.jpg';
 import runflat1 from '../../assets/images/machines/tyre-testing/runflat-1.jpg';
+import safetyCage1 from '../../assets/images/machines/tyre-testing/safety-cage-1.jpg';
 import hsu1 from '../../assets/images/machines/tyre-testing/hsu-1.jpg';
 import noise1 from '../../assets/images/machines/tyre-testing/noise-1.jpg';
 
@@ -157,6 +158,11 @@ const TyreTesting = () => {
       title: "Run-Flat Tire Testing",
       description: "The ASM-Hasbach Run Flat Tire Tester can perform High Speed and Durability testing at up to four stations. It Optionally measures tire internal, tread and ambient temperatures, rolling radius and circumference, and deflection.",
       images: [runflat1]
+    },
+    {
+      title: "Tire Inflation Safety Cage",
+      description: "Heavy-duty custom-engineered safety cage and containment systems designed for maximum operator protection during high-pressure inflation, bead seating, and burst testing.",
+      images: [safetyCage1]
     },
     {
       title: "High Speed Uniformity",

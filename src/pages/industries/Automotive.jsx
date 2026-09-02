@@ -6,13 +6,11 @@ import CtaSection from '../../components/CtaSection';
 import { Car, Wrench, Shield, Zap, CheckCircle2, ChevronRight, BarChart3, Settings } from 'lucide-react';
 
 const capabilities = [
-  // { title: "Chassis & Suspension FEA", desc: "Structural analysis and dynamic load simulation for chassis components and suspension systems to optimize safety and durability." },
-  // { title: "Tire Uniformity Verification", desc: "Integration of Poling Group final finish machines for high-precision uniformity and force-moment testing at production scale." },
   { title: "Runflat & Military Inserts", desc: "Specialized engineering for runflat tire inserts used in military and armored vehicles requiring zero-pressure mobility." },
-  { title: "BIW (Body in White) Design", desc: "Complete 3D CAD and engineering from concept design through detailed production drawings for body structures." },
-  { title: "Runflat & Military Inserts", desc: "Specialized engineering for runflat tire inserts used in military and armored vehicles requiring zero-pressure mobility." },
+  { title: "Safety Cage & Roll Over Protection", desc: "High-strength safety cage design and structural simulation for passenger, motorsport, and defense vehicle occupant protection." },
   { title: "BIW (Body in White) Design", desc: "Complete 3D CAD and engineering from concept design through detailed production drawings for body structures." },
   { title: "Non-Pneumatic Tires", desc: "Full lifecycle development of airless tire technology, including material selection, prototype testing, and production readiness." },
+  { title: "Chassis & Suspension FEA", desc: "Structural analysis and dynamic load simulation for chassis components and suspension systems to optimize safety and durability." },
   { title: "Engineered Plastics & Composites", desc: "Strategic application of lightweight materials for weight reduction, vibration damping, and cost optimization." }
 ];
 
