@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
-import { CheckCircle2, Award, Globe, Microscope, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Award, Globe, Microscope, ShieldCheck, Download, ExternalLink } from 'lucide-react';
 
 const AboutAecs = () => {
   const timeline = [
@@ -207,25 +207,52 @@ const AboutAecs = () => {
             <p className="text-gray-500 text-sm mt-2">Committed to global standards and verified by leading industry bodies.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
-            {['ISO 9001', 'ASME Certified', 'Poling Partner', 'Global Engineering'].map((label, i) => (
+            {['ISO 9001:2015', 'ASME Certified', 'Poling Partner', 'Global Engineering'].map((label, i) => (
               <div key={i} className="p-5 bg-white shadow-sm rounded-xl flex items-center justify-center h-24 border border-gray-100">
                 <span className="font-bold text-sm text-gray-500 text-center">{label}</span>
               </div>
             ))}
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col md:flex-row items-center justify-between max-w-3xl mx-auto">
-            <div className="flex items-center gap-4 mb-4 md:mb-0">
-              <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+          <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm flex flex-col md:flex-row items-center justify-between max-w-3xl mx-auto gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center shrink-0 border border-red-100">
+                <ShieldCheck className="w-6 h-6 text-brand-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-gray-900">ISO 9001 Certificate</h3>
-                <p className="text-sm text-gray-500">AECS holds active ISO 9001 certification.</p>
+                <div className="flex items-center gap-2">
+                  <h3 className="font-bold text-gray-900">ISO 9001:2015 Certificate</h3>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Certified
+                  </span>
+                </div>
+                <p className="text-sm text-gray-500 mt-0.5">
+                  Quality Management Systems • Certificate No. <span className="font-semibold text-gray-700">26RN01DI</span>
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">
+                  Accredited by UAF & IAF • Issued by Royal Impact Certification Ltd.
+                </p>
               </div>
             </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="btn-primary shrink-0 w-full md:w-auto text-center">View Certificate</a>
+            <div className="flex items-center gap-3 w-full md:w-auto shrink-0">
+              <a
+                href="/ISO-certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary shrink-0 w-full md:w-auto text-center inline-flex items-center justify-center gap-2 text-sm py-2.5 px-5"
+              >
+                <span>View Certificate</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href="/ISO-certificate.pdf"
+                download="AECS-ISO-9001-2015-Certificate.pdf"
+                className="btn-outline shrink-0 text-center inline-flex items-center justify-center gap-1.5 text-sm py-2 px-3"
+                title="Download ISO Certificate PDF"
+              >
+                <Download className="w-4 h-4" />
+                <span className="md:hidden">Download</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
