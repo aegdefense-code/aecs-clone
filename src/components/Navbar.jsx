@@ -176,9 +176,6 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/resources" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
-              Resources
-            </Link>
 
             <Link to="/about" className={`text-sm font-medium transition-colors hover:text-brand-primary py-2 ${isSolid ? 'text-gray-700' : 'text-white'}`}>
               About Us
@@ -314,7 +311,6 @@ const Navbar = () => {
               </div>
 
               <div className="pt-4 pb-4 flex flex-col">
-                <Link to="/resources" className="px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors" onClick={closeAllMenus}>Resources</Link>
                 <Link to="/about" className="px-4 py-4 text-sm font-black text-slate-800 uppercase tracking-[0.2em] hover:text-brand-primary transition-colors" onClick={closeAllMenus}>About Us</Link>
                 <Link to="/contact" className="btn-primary w-full text-center py-4 rounded-xl text-lg font-black uppercase tracking-widest mt-6" onClick={closeAllMenus}>Contact Us</Link>
               </div>
