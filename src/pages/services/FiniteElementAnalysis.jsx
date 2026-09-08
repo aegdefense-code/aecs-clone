@@ -8,10 +8,26 @@ import {
   Settings, Zap, BarChart3, Search, AlertCircle,
   FileText, Scale, Gavel, Cpu, CheckCircle2
 } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 const FiniteElementAnalysis = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Finite Element Analysis (FEA) Simulation"
+        description="Predictive physics and advanced simulation services: structural durability, fatigue lifecycle prediction, dynamic impact, and thermal FEA analysis."
+        canonical="/services/fea"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Finite Element Analysis (FEA) Simulation",
+          "provider": {
+            "@type": "Organization",
+            "name": "American Engineering Consultancy Services"
+          },
+          "description": "Predictive physics, structural durability, CFD, and advanced finite element simulation services."
+        }}
+      />
       <PageHero
         title="Finite Element Analysis (FEA)"
         subtitle="Predictive Physics and Advanced Simulation Services for Enhanced Reliability"

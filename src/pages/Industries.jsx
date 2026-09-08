@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SEO from '../components/SEO';
 import { ChevronRight } from 'lucide-react';
 
 const industries = [
@@ -39,6 +40,11 @@ const industries = [
 const Industries = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Industries We Serve | Automotive, Marine, Medical & Sports"
+        description="Domain-specific engineering solutions across automotive, naval & marine, medical devices, and performance wearables."
+        canonical="/industries"
+      />
       <PageHero
         title="Industries We Serve"
         subtitle="Domain-Specific Engineering Solutions for the World's Most Demanding Sectors"

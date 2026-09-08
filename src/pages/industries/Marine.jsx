@@ -5,6 +5,7 @@ import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import { Anchor, Waves, Settings, ShieldCheck, CheckCircle2, ChevronRight } from 'lucide-react';
 import marineImg from '../../assets/images/marine-engineering.jpg';
+import SEO from '../../components/SEO';
 
 const capabilities = [
   // { title: "CFD Hull Analysis", desc: "Advanced computational fluid dynamics simulations to optimize hydrodynamic performance and reduce fuel consumption." },
@@ -43,6 +44,21 @@ const projects = [
 const Marine = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Marine Engineering Services"
+        description="AECS delivers advanced marine engineering services: hydrodynamic CFD simulations, hull stress analysis, ISO 17357 pneumatic marine fender design, and offshore naval systems."
+        canonical="/industries/marine"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Marine Engineering Services",
+          "provider": {
+            "@type": "Organization",
+            "name": "American Engineering Consultancy Services"
+          },
+          "description": "Hydrodynamic simulations, hull stress analysis, and ISO 17357 compliant pneumatic fender design."
+        }}
+      />
       <PageHero
         title="Marine Engineering"
         subtitle="Hydrodynamic simulations, hull stress analysis, structural systems, and pneumatic fender design for naval and commercial marine applications."

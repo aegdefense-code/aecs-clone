@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -42,7 +42,7 @@ import TermsOfUse from './pages/legal/TermsOfUse';
 
 function App() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navbar />
@@ -86,7 +86,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 

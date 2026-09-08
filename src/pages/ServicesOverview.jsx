@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SEO from '../components/SEO';
 
 // Image imports (same as homepage Services)
 import prodManImg from '../assets/images/services/product-manufacturing.jpg';
@@ -121,6 +122,11 @@ const EngineeringCarousel = () => {
 const ServicesOverview = () => {
   return (
     <div>
+      <SEO
+        title="Engineering Services | Mechanical Design, FEA & Prototyping"
+        description="Explore AECS engineering services: New Product Development (NPD), Finite Element Analysis (FEA), Rapid Prototyping, and Poling Group Tire Testing."
+        canonical="/services"
+      />
       <PageHero
         title="Engineering Services Overview"
         subtitle="Comprehensive engineering, design, and manufacturing solutions tailored to global industry standards."

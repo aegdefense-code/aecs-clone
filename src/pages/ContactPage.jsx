@@ -1,10 +1,16 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
 import Contact from '../components/Contact';
+import SEO from '../components/SEO';
 
 const ContactPage = () => {
   return (
     <div>
+      <SEO
+        title="Contact Us | Get in Touch with Engineering Experts"
+        description="Contact American Engineering Consultancy Services (AECS) for mechanical design, simulation, prototyping, or manufacturing inquiries."
+        canonical="/contact"
+      />
       <PageHero 
         title="Contact AECS" 
         subtitle="Global Engineering Expertise, Local Presence. Get in touch with our team today."

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
 import CtaSection from '../components/CtaSection';
+import SEO from '../components/SEO';
 import { CheckCircle2, Award, Globe, Microscope, ShieldCheck, Download, ExternalLink } from 'lucide-react';
 
 const AboutAecs = () => {
@@ -30,6 +31,17 @@ const AboutAecs = () => {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="About AECS | Engineering Heritage & Leadership"
+        description="Learn about American Engineering Consultancy Services (AECS), our 25+ years of research heritage, ISO 9001:2015 certification, and global partnership with Poling Group."
+        canonical="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About AECS",
+          "description": "Pioneering engineering consultancy, precision design, and testing services."
+        }}
+      />
       <PageHero
         title="About AECS"
         subtitle="Pioneering Engineering Solutions in Kochi — Delivering precision-driven design, consultancy, and testing services across India and global markets."

@@ -4,6 +4,7 @@ import About from '../components/About';
 import Services from '../components/Services';
 import Contact from '../components/Contact';
 import ClientCarousel from '../components/ClientCarousel';
+import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
    Award, 
@@ -164,6 +165,19 @@ const Home = () => {
 
    return (
       <main className="overflow-x-hidden">
+         <SEO
+            title="American Engineering Consultancy Services"
+            description="AECS provides world-class mechanical design, FEA simulation, prototyping, tire testing machinery, and product manufacturing solutions."
+            canonical="/"
+            jsonLd={{
+               "@context": "https://schema.org",
+               "@type": "Organization",
+               "name": "American Engineering Consultancy Services",
+               "url": "https://aecs-websites.web.app",
+               "logo": "https://aecs-websites.web.app/logo.png",
+               "description": "Comprehensive engineering consultancy and manufacturing solutions."
+            }}
+         />
          <Hero />
 
          <About />
