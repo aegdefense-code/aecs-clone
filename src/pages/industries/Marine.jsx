@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import { Anchor, Waves, Settings, ShieldCheck, CheckCircle2, ChevronRight } from 'lucide-react';
+import marineImg from '../../assets/images/marine-engineering.jpg';
 
 const capabilities = [
   // { title: "CFD Hull Analysis", desc: "Advanced computational fluid dynamics simulations to optimize hydrodynamic performance and reduce fuel consumption." },
@@ -88,7 +89,7 @@ const Marine = () => {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <img
-                src="https://images.unsplash.com/photo-1565071559227-20ab25b7685e?q=80&w=2940&auto=format&fit=crop"
+                src={marineImg}
                 alt="Marine Engineering"
                 className="w-full h-[500px] object-cover rounded-[40px] shadow-2xl border border-gray-100"
               />
