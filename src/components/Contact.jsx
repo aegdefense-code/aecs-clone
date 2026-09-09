@@ -161,7 +161,8 @@ const Contact = () => {
                 <div className="ml-6">
                   <h3 className="text-xl font-bold text-gray-900">Email Inquiries</h3>
                   <a href="mailto:info@aecs-india.com" className="mt-2 block text-brand-primary hover:underline">
-                    info@aecs-india.com
+                    info@aecs-india.com<br />
+                    engineeringaecs@gmail.com
                   </a>
                 </div>
               </div>

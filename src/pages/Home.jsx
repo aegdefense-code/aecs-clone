@@ -76,7 +76,7 @@ const Home = () => {
       },
       {
          id: "safety-cage",
-         title: "Inflation Safety Cage",
+         title: "Safety Cage",
          cat: "Automotive & Testing Safety",
          badge: "Custom Engineered System",
          img: safetyCageImg,
