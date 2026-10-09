@@ -4,9 +4,7 @@ import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import { 
-  Rocket, Target, Zap, Infinity, CheckCircle2, 
-  Workflow, Cpu, Globe, Wrench, ShieldAlert,
-  Beaker, Microscope, BarChart2, Ship
+  Zap, CheckCircle2, Workflow, Cpu, Globe, Wrench, ShieldAlert, Beaker
 } from 'lucide-react';
 
 const NewProductDevelopment = () => {
@@ -46,10 +44,10 @@ const NewProductDevelopment = () => {
       <PageHero 
         title="New Product Development (NPD)" 
         subtitle="Structured, Evidence-Based Engineering from Concept to Production-Ready Hardware"
-        backgroundImage="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2940&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop"
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Contact Us
+          Start Your NPD Project
         </Link>
       </PageHero>
 
@@ -206,9 +204,9 @@ const NewProductDevelopment = () => {
               </div>
               <div className="lg:w-1/2">
                  <div className="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1580983546513-39d67d730a9e?q=80&w=2938&auto=format&fit=crop" alt="Engineering Lab" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+                    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=2938&auto=format&fit=crop" alt="Engineering Lab" className="rounded-xl shadow-lg w-full h-48 object-cover" />
                     <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2940&auto=format&fit=crop" alt="Prototype Testing" className="rounded-xl shadow-lg w-full h-48 object-cover mt-8" />
-                    <img src="https://images.unsplash.com/photo-1581092162384-8987c1794ed9?q=80&w=2940&auto=format&fit=crop" alt="CAD Design" className="rounded-xl shadow-lg w-full h-48 object-cover -mt-8" />
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop" alt="CAD Design" className="rounded-xl shadow-lg w-full h-48 object-cover -mt-8" />
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2940&auto=format&fit=crop" alt="Final Product" className="rounded-xl shadow-lg w-full h-48 object-cover" />
                  </div>
               </div>
@@ -216,7 +214,7 @@ const NewProductDevelopment = () => {
         </div>
       </section>
 
-      <CtaSection title="Transform Your Concept Into Production-Ready Hardware" subtitle="Contact AECS today to leverage our structured engineering NPD process." />
+      <CtaSection title="Transform Your Concept Into Production-Ready Hardware" subtitle="Discuss your technical roadmap with AECS today to leverage our structured engineering NPD process." buttonText="Discuss Your NPD Project" />
     </div>
   );
 };

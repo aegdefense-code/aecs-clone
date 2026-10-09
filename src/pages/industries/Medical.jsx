@@ -28,10 +28,10 @@ const Medical = () => {
       <PageHero
         title="Medical Device Engineering"
         subtitle="ISO 13485 compliant, FDA-ready design and development processes for surgical tools, medical devices, and biocompatible systems."
-        backgroundImage="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?q=80&w=2974&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2880&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Discuss Your Medical Device</Link>
         </div>
       </PageHero>
 
@@ -166,6 +166,7 @@ const Medical = () => {
       <CtaSection
         title="Bring Your Medical Device to Market Faster"
         subtitle="AECS provides structured, compliance-driven engineering from concept to FDA clearance."
+        buttonText="Discuss Your Medical Device"
       />
     </div>
   );

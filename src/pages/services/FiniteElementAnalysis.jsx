@@ -34,7 +34,7 @@ const FiniteElementAnalysis = () => {
         backgroundImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Contact Us
+          Request FEA Consultation
         </Link>
       </PageHero>
 
@@ -212,7 +212,7 @@ const FiniteElementAnalysis = () => {
         </div>
       </section>
 
-      <CtaSection title="Maximize Performance. Minimize Failure." subtitle="Contact our FEA consulting team today to discuss your simulation requirements." />
+      <CtaSection title="Maximize Performance. Minimize Failure." subtitle="Discuss your structural and fluid simulation requirements with our FEA consulting team today." buttonText="Request FEA Consultation" />
     </div>
   );
 };

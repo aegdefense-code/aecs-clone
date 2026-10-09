@@ -47,7 +47,7 @@ const MerchantPolicies = () => {
           <div className="pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-500">
               Last Updated: {new Date().toLocaleDateString()} <br />
-              If you have any questions regarding these policies, please contact <a href="mailto:info@aecs-india.com" className="text-brand-primary hover:underline">info@aecs-india.com</a>.
+              If you have any questions regarding these policies, please contact <a href="mailto:engineeringaecs@gmail.com" className="text-brand-primary hover:underline">engineeringaecs@gmail.com</a>.
             </p>
           </div>
         </div>

@@ -47,3 +47,18 @@
 .engineering-tile {
   @apply h-full;
 }
+
+/* Navbar Logo Switching */
+.navbar:not(.scrolled) .logo-dark-bg {
+  display: block;
+}
+.navbar.scrolled .logo-dark-bg {
+  display: none !important;
+}
+.navbar:not(.scrolled) .logo-light-bg {
+  display: none !important;
+}
+.navbar.scrolled .logo-light-bg {
+  display: block;
+}
+

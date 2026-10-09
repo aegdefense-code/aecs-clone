@@ -9,7 +9,7 @@ const Plastic = () => {
       <PageHero 
         title="Precision Plastic Components" 
         subtitle="High-Quality Injection Molding and Industrial Polymer Solutions"
-        backgroundImage="https://images.unsplash.com/photo-1623835694200-e22e96ebbe5c?q=80&w=2942&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop"
       />
 
       <section className="py-20 bg-white">

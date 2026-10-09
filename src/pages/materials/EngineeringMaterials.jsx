@@ -23,7 +23,7 @@ const EngineeringMaterials = () => {
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {/* Rubber */}
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                 <img src="https://images.unsplash.com/photo-1549468057-5426b38c03e8?q=80&w=2960&auto=format&fit=crop" alt="Rubber Extrusion" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop" alt="Rubber Extrusion" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-2xl font-bold text-white mb-2">Industrial Rubber & Elastomers</h3>
@@ -33,7 +33,7 @@ const EngineeringMaterials = () => {
               
               {/* Plastics */}
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                 <img src="https://images.unsplash.com/photo-1623835694200-e22e96ebbe5c?q=80&w=2942&auto=format&fit=crop" alt="Plastic Injection" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                 <img src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?q=80&w=2940&auto=format&fit=crop" alt="Plastic Injection" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-2xl font-bold text-white mb-2">Engineered Plastics</h3>
@@ -43,7 +43,7 @@ const EngineeringMaterials = () => {
 
               {/* Composites */}
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                 <img src="https://images.unsplash.com/photo-1555448259-c29eb24874c7?q=80&w=2938&auto=format&fit=crop" alt="Carbon Fiber" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                 <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=2940&auto=format&fit=crop" alt="Carbon Fiber" className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-2xl font-bold text-white mb-2">Advanced Composites</h3>

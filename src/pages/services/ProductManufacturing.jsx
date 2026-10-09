@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
+import productManufacturingImg from '../../assets/images/services/product-manufacturing.jpg';
 import { 
   Settings, Wrench, CheckCircle, Package, Lightbulb, 
   Search, BarChart4, FastForward, ShieldCheck, Trophy, 
@@ -28,10 +29,10 @@ const ProductManufacturing = () => {
       <PageHero 
         title="Product Manufacturing" 
         subtitle="End-to-End Product Development Solutions from Concept to Launch"
-        backgroundImage="https://images.unsplash.com/photo-1565439399859-450ebf9b9772?q=80&w=2940&auto=format&fit=crop"
+        backgroundImage={productManufacturingImg}
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Contact Us
+          Request Manufacturing Consultation
         </Link>
       </PageHero>
 
@@ -182,11 +183,8 @@ const ProductManufacturing = () => {
               { title: "Polyurethane Solid Tires", desc: "Engineered for extreme durability and long service life in heavy-duty industrial applications." },
               { title: "Tire Quality Prediction", desc: "Uses advanced simulations to forecast performance, durability, and quality metrics." },
               { title: "Personal Protection Systems", desc: "Flexible, lightweight protection focused on user comfort and impact resistance." },
-              { title: "Dual Damper", desc: "Enhanced shock absorption and vibration reduction for high-stability vehicle systems." },
               { title: "Carbon Fiber Tires", desc: "Ultra-lightweight high-performance tires combining extreme strength with agility." },
-              { title: "Posture Perfect Backpack", desc: "Ergonomic design promoting better posture by distributing weight evenly across the torso." },
-              { title: "Carbon Fiber Knee Brace", desc: "Lightweight support providing maximum protection for athletes and medical recovery." }
-            ].map((patent, idx) => (
+              { title: "Posture Perfect Backpack", desc: "Ergonomic design promoting better posture by distributing weight evenly across the torso." }].map((patent, idx) => (
               <motion.div 
                 key={idx}
                 whileHover={{ scale: 1.02 }}
@@ -305,7 +303,7 @@ const ProductManufacturing = () => {
         </div>
       </section>
 
-      <CtaSection title="Transform Your Invention into a Global Brand" subtitle="Contact us today for ISO-certified product development and manufacturing services." />
+      <CtaSection title="Transform Your Invention into a Global Brand" subtitle="Partner with AECS today for ISO-certified product development and precision contract manufacturing services." buttonText="Discuss Your Manufacturing Needs" />
     </div>
   );
 };

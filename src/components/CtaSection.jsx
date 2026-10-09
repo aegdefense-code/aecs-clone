@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
-const CtaSection = ({ title = "Ready to Discuss Your Next Project?", subtitle = "Our engineering team is ready to analyze your requirements and provide innovative, scalable solutions.", buttonText = "Contact Us", buttonLink = "/contact" }) => {
+const CtaSection = ({ 
+  title = "Ready to Discuss Your Next Project?", 
+  subtitle = "Our engineering team is ready to analyze your requirements and provide innovative, scalable solutions.", 
+  buttonText = "Discuss Your Project", 
+  buttonLink = "/contact" 
+}) => {
   return (
     <section 
       className="py-20 relative overflow-hidden"
@@ -27,9 +33,10 @@ const CtaSection = ({ title = "Ready to Discuss Your Next Project?", subtitle = 
           </p>
           <Link 
             to={buttonLink} 
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-brand-primary bg-white hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-lg font-bold rounded-xl text-brand-primary bg-white hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 group"
           >
-            {buttonText}
+            <span>{buttonText}</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>

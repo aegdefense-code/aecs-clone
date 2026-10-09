@@ -1,4 +1,4 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
@@ -15,6 +15,8 @@ const routes = [
   '/services/product-manufacturing',
   '/services/npd',
   '/services/fea',
+  '/services/cfd-thermal',
+  '/services/digital-twin',
   '/services/design',
   '/services/prototyping',
   '/services/testing',
@@ -25,10 +27,14 @@ const routes = [
   '/materials/composite',
   '/industries',
   '/industries/automotive',
+  '/industries/defense-mobility',
   '/industries/marine',
   '/industries/medical',
   '/industries/consumer-sports',
+  '/industries/industrial-equipment',
   '/ai',
+  '/projects',
+  '/products',
   '/resources',
   '/policies/merchant',
   '/policies/legal',
@@ -139,6 +145,30 @@ async function prerender() {
   }
 
   console.log(`✨ Successfully pre-rendered ${renderedCount}/${routes.length} routes!`);
+
+  // Generate sitemap.xml dynamically from pre-rendered routes
+  const today = new Date().toISOString().split('T')[0];
+  const sitemapUrls = routes.map((route) => {
+    let priority = '0.8';
+    let changefreq = 'monthly';
+    if (route === '/') {
+      priority = '1.0';
+      changefreq = 'weekly';
+    } else if (['/services', '/industries', '/projects', '/products', '/resources'].includes(route)) {
+      priority = '0.9';
+      changefreq = 'weekly';
+    } else if (route.startsWith('/policies')) {
+      priority = '0.3';
+      changefreq = 'yearly';
+    }
+    const loc = route === '/' ? 'https://aecs-india.com/' : `https://aecs-india.com${route}`;
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  }).join('\n');
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`;
+  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapXml, 'utf-8');
+  fs.writeFileSync(path.join(__dirname, '../public/sitemap.xml'), sitemapXml, 'utf-8');
+  console.log(`🗺️  Generated sitemap.xml with ${routes.length} URLs!`);
 
   // Clean up temporary pristine template file
   if (fs.existsSync(pristinePath)) {

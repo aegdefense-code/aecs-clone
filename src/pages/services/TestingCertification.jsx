@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
-import { ShieldCheck, Zap, Factory, Microscope, CheckCircle2, Globe } from 'lucide-react';
+import { ShieldCheck, Microscope, CheckCircle2, Zap, Globe } from 'lucide-react';
 
 // Image Imports
 import tbm1 from '../../assets/images/machines/testing-inspection/Tyre Building Machine-1.jpg';
@@ -40,11 +40,10 @@ const TestingCertification = () => {
         backgroundImage={tcp2}
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Contact Us
+          Schedule Product Testing
         </Link>
       </PageHero>
-
-      {/* Main Content */}
+{/* Main Content */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
@@ -89,18 +88,34 @@ const TestingCertification = () => {
       </section>
 
       {/* Materials Testing */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Materials Testing & Inspection Services</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+      <section className="py-20 sm:py-24 bg-brand-dark text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 transform translate-x-20 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6 text-sm font-medium">
+            <Microscope className="w-4 h-4 mr-2 text-brand-primary" />
+            Comprehensive Material Evaluation
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic tracking-tight uppercase">
+            Materials Testing & Inspection Services
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
             AECS specializes in both destructive and non-destructive testing methods to evaluate material properties, strength, durability, and corrosion resistance.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {materials.map((material, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md">
-                <Microscope className="w-12 h-12 text-brand-primary mb-6 mx-auto" />
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{material.title}</h3>
-                <p className="text-gray-600">{material.description}</p>
+              <div 
+                key={idx} 
+                className="bg-white p-8 rounded-2xl shadow-xl border border-white/20 hover:border-brand-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group text-left relative"
+              >
+                <div className="w-14 h-14 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-primary transition-all duration-300">
+                  <Microscope className="w-7 h-7 text-brand-primary group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">
+                  {material.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {material.description}
+                </p>
               </div>
             ))}
           </div>
@@ -108,7 +123,7 @@ const TestingCertification = () => {
       </section>
 
       {/* Specialized Facility Highlight */}
-      <section className="py-20 bg-brand-dark text-white overflow-hidden relative">
+      {/* <section className="py-20 bg-brand-dark text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 transform translate-x-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -141,7 +156,7 @@ const TestingCertification = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Inspected & Certified Machines */}
       <section className="py-20 bg-white">
@@ -150,7 +165,7 @@ const TestingCertification = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Inspected & Certified Machines</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">Providing rigorous inspection and certification services for specialized industrial equipment exported globally.</p>
           </div>
-
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {caseStudies.map((study, idx) => (
               <div key={idx} className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-primary/20 transition-all flex flex-col md:flex-row">
@@ -176,7 +191,8 @@ const TestingCertification = () => {
 
       <CtaSection
         title="Elevate Your Quality Assurance"
-        subtitle="Reach out today to leverage our trusted testing solutions for your next project."
+        subtitle="Reach out today to leverage our trusted testing and ISO/ASTM compliance solutions for your next project."
+        buttonText="Schedule Testing Consultation"
       />
     </div>
   );

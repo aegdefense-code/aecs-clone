@@ -66,7 +66,7 @@ const RapidPrototyping = () => {
         backgroundImage="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop"
       >
         <Link to="/contact" className="btn-primary py-3 px-8 text-lg shadow-lg">
-          Contact Us
+          Request Prototyping Consultation
         </Link>
       </PageHero>
 
@@ -179,27 +179,27 @@ const RapidPrototyping = () => {
       {/* Validation & Prototyping Showcase */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-20">
+          {/* <div className="max-w-3xl mx-auto text-center mb-20">
             <h2 className="text-4xl font-black text-slate-900 mb-4 px-4">Functional Prototyping</h2>
             <p className="text-slate-500 font-medium">We deliver high-fidelity prototypes that go beyond visual representation to offer true functional validation.</p>
-          </div>
+          </div> */}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24">
             {[
               { 
                 label: "Metal Fabrication", 
                 type: "Precision Functional Parts",
-                img: "https://images.unsplash.com/photo-1581092162384-8987c1794ed9?q=80&w=2940&auto=format&fit=crop"
+                img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2940&auto=format&fit=crop"
               },
               { 
                 label: "Polymer Molding", 
                 type: "Industrial Injection Parts",
-                img: "https://images.unsplash.com/photo-1563969411978-e8cb9b917de5?q=80&w=2938&auto=format&fit=crop"
+                img: "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?q=80&w=2940&auto=format&fit=crop"
               },
               { 
                 label: "Silicone Prototyping", 
                 type: "Flexible Solution Testing",
-                img: "https://images.unsplash.com/photo-1544378730-8b510ed03aa9?q=80&w=2942&auto=format&fit=crop"
+                img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2940&auto=format&fit=crop"
               }
             ].map((feature, fIdx) => (
               <div key={fIdx} className="overflow-hidden rounded-3xl group cursor-default shadow-sm border border-slate-100 flex flex-col h-full bg-slate-50/20">
@@ -212,7 +212,7 @@ const RapidPrototyping = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           <div className="bg-red-50/40 rounded-[3rem] p-10 md:p-16 relative overflow-hidden border border-red-100/50">
              <div className="relative z-10 lg:flex lg:items-center lg:gap-16">
@@ -235,7 +235,7 @@ const RapidPrototyping = () => {
         </div>
       </section>
 
-      <CtaSection title="Unlock the Potential of Your Engineering Vision" subtitle="Let’s discuss how our multidisciplinary expertise can contribute to your next market success." />
+      <CtaSection title="Unlock the Potential of Your Engineering Vision" subtitle="Let’s discuss how our multidisciplinary prototyping and CNC machining expertise can accelerate your market launch." buttonText="Discuss Your Prototyping Project" />
     </article>
   );
 };

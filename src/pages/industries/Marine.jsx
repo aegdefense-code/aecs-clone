@@ -13,7 +13,7 @@ const capabilities = [
   // { title: "Onboard HVAC & Plumbing", desc: "Engineering of climate control and fluid systems built to withstand corrosion, vibration, and harsh marine environments." },
   // { title: "Pneumatic Fender Design", desc: "Design, analysis, and testing of ISO 17357-compliant marine fenders for safe port and vessel-to-vessel docking." },
   // { title: "Structural Hull Design", desc: "Detailed finite element analysis (FEA) of hull structures for stress distribution, fatigue life, and wave impact loads." },
-  { title: "Naval & Offshore Systems", desc: "Specialized engineering for naval combat vessels and offshore platforms requiring extreme structural integrity." }
+  { title: "Naval & Offshore Systems", desc: "Engineering for naval combat vessels and offshore platforms requiring extreme structural integrity." }
 ];
 
 const stats = [
@@ -62,10 +62,10 @@ const Marine = () => {
       <PageHero
         title="Marine Engineering"
         subtitle="Hydrodynamic simulations, hull stress analysis, structural systems, and pneumatic fender design for naval and commercial marine applications."
-        backgroundImage="https://images.unsplash.com/photo-1543886566-6b22c7102e3b?q=80&w=2874&auto=format&fit=crop"
+        backgroundImage={marineImg}
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Discuss Your Marine Project</Link>
         </div>
       </PageHero>
 
@@ -190,7 +190,8 @@ const Marine = () => {
 
       <CtaSection
         title="Navigate Marine Challenges with AECS"
-        subtitle="Contact us to discuss your marine engineering, fender design, or structural analysis requirements."
+        subtitle="Discuss your marine engineering, fender design, or structural analysis requirements with our naval architecture specialists."
+        buttonText="Discuss Your Marine Project"
       />
     </div>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
+import svnitLogo from '../assets/images/clients/svnit.png';
+import ktuLogo from '../assets/images/clients/ktu.png';
 import CtaSection from '../components/CtaSection';
 import SEO from '../components/SEO';
 import { CheckCircle2, Award, Globe, Microscope, ShieldCheck, Download, ExternalLink } from 'lucide-react';
@@ -193,7 +195,7 @@ const AboutAecs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-all">
               <div className="h-28 flex items-center justify-center mb-5">
-                <img src="https://www.svnit.ac.in/images/logo.png" alt="NIT Surat Logo" className="max-h-full w-auto" />
+                <img src={svnitLogo} alt="NIT Surat Logo" className="max-h-full w-auto" />
               </div>
               <h3 className="text-base font-bold text-gray-900 mb-1">Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat</h3>
               <p className="text-gray-400 text-xs italic">Deemed University — Ministry of Education, Govt. of India</p>
@@ -201,7 +203,7 @@ const AboutAecs = () => {
             </div>
             <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-all">
               <div className="h-28 flex items-center justify-center mb-5">
-                <img src="https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png" alt="KTU Logo" className="max-h-full w-auto" />
+                <img src={ktuLogo} alt="KTU Logo" className="max-h-full w-auto" />
               </div>
               <h3 className="text-base font-bold text-gray-900 mb-1">APJ Abdul Kalam Technological University (KTU), Kerala</h3>
               <p className="text-gray-400 text-xs italic">Kerala Technological University</p>

@@ -8,6 +8,18 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      { "source": "/services.html", "destination": "/services", "type": 301 },
+      { "source": "/services.php", "destination": "/services", "type": 301 },
+      { "source": "/tire-testing.html", "destination": "/services/tyre-testing", "type": 301 },
+      { "source": "/fea.html", "destination": "/services/fea", "type": 301 },
+      { "source": "/about.html", "destination": "/about", "type": 301 },
+      { "source": "/about.php", "destination": "/about", "type": 301 },
+      { "source": "/contact.html", "destination": "/contact", "type": 301 },
+      { "source": "/contact.php", "destination": "/contact", "type": 301 },
+      { "source": "/products.html", "destination": "/products", "type": 301 },
+      { "source": "/blog/**", "destination": "/resources", "type": 301 }
+    ],
     "rewrites": [
       {
         "source": "**",

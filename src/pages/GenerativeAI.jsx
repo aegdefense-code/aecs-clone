@@ -1,5 +1,7 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
+import svnitLogo from '../assets/images/clients/svnit.png';
+import ktuLogo from '../assets/images/clients/ktu.png';
 import CtaSection from '../components/CtaSection';
 import { BrainCircuit, Cpu, RefreshCw, Workflow } from 'lucide-react';
 
@@ -9,7 +11,7 @@ const GenerativeAI = () => {
       <PageHero 
         title="Generative AI in Engineering" 
         subtitle="Augmenting Human Ingenuity with Machine Intelligence for Rapid Product Development"
-        backgroundImage="https://images.unsplash.com/photo-1620712948633-281565bf73ab?q=80&w=2938&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2864&auto=format&fit=crop"
       />
 
       <section className="py-20 bg-white">
@@ -67,7 +69,7 @@ const GenerativeAI = () => {
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col items-center text-center group hover:shadow-md transition-all duration-300">
                  <div className="h-32 flex items-center justify-center mb-6">
                     <img 
-                      src="https://www.svnit.ac.in/images/logo.png" 
+                      src={svnitLogo} 
                       alt="NIT Surat Logo" 
                       className="max-h-full w-auto transition-all duration-300"
                     />
@@ -79,7 +81,7 @@ const GenerativeAI = () => {
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col items-center text-center group hover:shadow-md transition-all duration-300">
                  <div className="h-32 flex items-center justify-center mb-6">
                     <img 
-                      src="https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png" 
+                      src={ktuLogo} 
                       alt="KTU Logo" 
                       className="max-h-full w-auto transition-all duration-300"
                     />

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
+import ProofBar from '../components/ProofBar';
+import EngineeringPlatforms from '../components/EngineeringPlatforms';
+import WhyAecs from '../components/WhyAecs';
+import HomeIndustries from '../components/HomeIndustries';
+import TechnicalInsightsPreview from '../components/TechnicalInsightsPreview';
+import HomeFinalCta from '../components/HomeFinalCta';
 import About from '../components/About';
 import Services from '../components/Services';
 import Contact from '../components/Contact';
@@ -30,6 +36,8 @@ import safetyCageImg from '../assets/images/portfolio/safety-cage.jpg';
 import appleFenderImg from '../assets/images/portfolio/apple-fender.jfif';
 import pneumaticFenderImg from '../assets/images/portfolio/pneumatic-fender.jfif';
 import airlessTireImg from '../assets/images/portfolio/airless-tire.jpeg';
+import svnitLogo from '../assets/images/clients/svnit.png';
+import ktuLogo from '../assets/images/clients/ktu.png';
 
 const Home = () => {
    const [selectedProductIndex, setSelectedProductIndex] = useState(null);
@@ -179,43 +187,11 @@ const Home = () => {
             }}
          />
          <Hero />
-
-         <About />
-         <Services />
-
-         {/* Core Value Proposition Section */}
-         <section className="py-16 sm:py-28 bg-slate-50/50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="text-center mb-12 sm:mb-20">
-                  <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-5">Why Choose AECS?</h2>
-                  <div className="flex justify-center">
-                     <span className="w-12 h-1.5 bg-brand-primary rounded-full"></span>
-                  </div>
-               </div>
-
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10">
-                  {keyDifferentiators.map((feature, featureIndex) => (
-                     <motion.div
-                        key={featureIndex}
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: featureIndex * 0.1 }}
-                        className="flex flex-col items-center text-center p-6 sm:p-8 rounded-3xl bg-white border border-slate-100/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group"
-                     >
-                        <div className="w-14 h-14 sm:w-20 h-20 bg-red-50/50 rounded-2xl flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
-                           {feature.icon}
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 leading-tight">{feature.title}</h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed">{feature.desc}</p>
-                     </motion.div>
-                  ))}
-               </div>
-            </div>
-         </section>
+         <ProofBar />
+         <EngineeringPlatforms />
 
          {/* Project Showcase / Portfolio */}
-         <section className="py-24 bg-brand-dark text-white overflow-hidden">
+         <section id="featured-projects" className="py-24 bg-brand-dark text-white overflow-hidden scroll-mt-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                   <div>
@@ -471,6 +447,12 @@ const Home = () => {
             )}
          </AnimatePresence>
 
+         {/* Section 5: Industries Verticals */}
+         <HomeIndustries />
+
+         {/* Section 6: Why AECS? */}
+         <WhyAecs />
+
          {/* Recognition, Certifications & Educational Synergy */}
          <section className="py-24 bg-white border-t border-slate-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -508,12 +490,12 @@ const Home = () => {
                         <div className="space-y-4">
                            {[
                               {
-                                 logo: "https://www.svnit.ac.in/images/logo.png",
+                                 logo: svnitLogo,
                                  name: "Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat",
                                  role: "Academic Partner"
                               },
                               {
-                                 logo: "https://ktu.edu.in/static/media/logo_header.77120c0967a09b766cdf.png",
+                                 logo: ktuLogo,
                                  name: "APJ Abdul Kalam Technological University (KTU), Kerala",
                                  role: "Research Partner"
                               }
@@ -536,12 +518,14 @@ const Home = () => {
             </div>
          </section>
 
+         {/* Section 7: Technical Insights & Knowledge Hub Preview */}
+         <TechnicalInsightsPreview />
+
          {/* Our Clients Infinite Carousel */}
          <ClientCarousel />
 
          {/* Leadership Vision - Edge-to-Edge Banner */}
          <section className="bg-gradient-to-br from-brand-primary via-brand-primary to-red-800 text-white relative overflow-hidden py-8">
-            {/* Decorative background element - human touch */}
             <div className="absolute -top-10 -right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-1000"></div>
             <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
 
@@ -567,7 +551,8 @@ const Home = () => {
             </div>
          </section>
 
-         <Contact />
+         {/* Section 8: Final Inbound Conversion Section */}
+         <HomeFinalCta />
       </main>
    );
 };

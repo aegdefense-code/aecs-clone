@@ -17,6 +17,7 @@ import {
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import ImageLightbox from '../../components/ImageLightbox';
+import tyreTestingHeroImg from '../../assets/images/services/tyre-testing.jpeg';
 import { useState, useEffect } from 'react';
 
 const MachineCard = ({ machine, variant = 'light', onImageClick }) => {
@@ -224,11 +225,11 @@ const TyreTesting = () => {
       <PageHero
         title="Comprehensive Tyre Testing Services"
         subtitle="Ensure safety, reliability, and performance with AECS’s state-of-the-art tyre testing solutions—designed for development, validation, and production excellence."
-        backgroundImage="https://images.unsplash.com/photo-1549646864-1e0fc208cddf?q=80&w=2938&auto=format&fit=crop"
+        backgroundImage={tyreTestingHeroImg}
       >
         <div className="mt-8 flex gap-4">
           <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl shadow-red-900/20">
-            Contact Us
+            Inquire About Machinery
           </Link>
         </div>
       </PageHero>
@@ -529,7 +530,11 @@ const TyreTesting = () => {
          </div>
       </section> */}
 
-      <CtaSection />
+      <CtaSection 
+        title="Ready to Optimize Your Tyre Testing Operations?" 
+        subtitle="Connect with our Poling Group certified technical specialists for machine commissioning, calibration, and engineering support." 
+        buttonText="Inquire About Testing Machines" 
+      />
     </div>
   );
 };

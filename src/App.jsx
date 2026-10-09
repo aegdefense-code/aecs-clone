@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import ServicesOverview from './pages/ServicesOverview';
 import AboutAecs from './pages/AboutAecs';
 import ContactPage from './pages/ContactPage';
+import Projects from './pages/Projects';
+import Products from './pages/Products';
 
 // Service Pages
 import ProductManufacturing from './pages/services/ProductManufacturing';
@@ -18,6 +20,8 @@ import MechanicalDesign from './pages/services/MechanicalDesign';
 import RapidPrototyping from './pages/services/RapidPrototyping';
 import TestingCertification from './pages/services/TestingCertification';
 import TyreTesting from './pages/services/TyreTesting';
+import CfdThermal from './pages/services/CfdThermal';
+import DigitalTwin from './pages/services/DigitalTwin';
 import EngineeringMaterials from './pages/materials/EngineeringMaterials';
 import Rubber from './pages/materials/Rubber';
 import Plastic from './pages/materials/Plastic';
@@ -33,6 +37,8 @@ import Automotive from './pages/industries/Automotive';
 import Marine from './pages/industries/Marine';
 import Medical from './pages/industries/Medical';
 import ConsumerSports from './pages/industries/ConsumerSports';
+import DefenseMobility from './pages/industries/DefenseMobility';
+import IndustrialEquipment from './pages/industries/IndustrialEquipment';
 
 // Legal Pages
 import MerchantPolicies from './pages/legal/MerchantPolicies';
@@ -55,6 +61,8 @@ function App() {
             <Route path="/services/product-manufacturing" element={<ProductManufacturing />} />
             <Route path="/services/npd" element={<NewProductDevelopment />} />
             <Route path="/services/fea" element={<FiniteElementAnalysis />} />
+            <Route path="/services/cfd-thermal" element={<CfdThermal />} />
+            <Route path="/services/digital-twin" element={<DigitalTwin />} />
             <Route path="/services/design" element={<MechanicalDesign />} />
             <Route path="/services/prototyping" element={<RapidPrototyping />} />
             <Route path="/services/testing" element={<TestingCertification />} />
@@ -68,10 +76,16 @@ function App() {
             
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/automotive" element={<Automotive />} />
+            <Route path="/industries/defense-mobility" element={<DefenseMobility />} />
+            <Route path="/industries/defense" element={<DefenseMobility />} />
             <Route path="/industries/marine" element={<Marine />} />
             <Route path="/industries/medical" element={<Medical />} />
             <Route path="/industries/consumer-sports" element={<ConsumerSports />} />
+            <Route path="/industries/industrial-equipment" element={<IndustrialEquipment />} />
+            <Route path="/industries/industrial" element={<IndustrialEquipment />} />
             <Route path="/ai" element={<GenerativeAI />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/resources" element={<Resources />} />
             
             <Route path="/about" element={<AboutAecs />} />

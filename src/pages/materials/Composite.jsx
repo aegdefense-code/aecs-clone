@@ -9,7 +9,7 @@ const Composite = () => {
       <PageHero 
         title="Advanced Composite Solutions" 
         subtitle="Lightweight, High-Performance Materials for Structural Integrity"
-        backgroundImage="https://images.unsplash.com/photo-1555448259-c29eb24874c7?q=80&w=2938&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=2940&auto=format&fit=crop"
       />
 
       <section className="py-20 bg-white">
@@ -47,7 +47,7 @@ const Composite = () => {
             >
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1542744095-231a1532f41c?q=80&w=2940&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop" 
                   alt="Composite Materials" 
                   className="w-full h-full object-cover"
                 />

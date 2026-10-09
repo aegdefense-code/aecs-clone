@@ -9,7 +9,7 @@ const Rubber = () => {
       <PageHero 
         title="Industrial Rubber Solutions" 
         subtitle="High-Performance Elastomers & Custom Molded Components"
-        backgroundImage="https://images.unsplash.com/photo-1549468057-5426b38c03e8?q=80&w=2960&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=2940&auto=format&fit=crop"
       />
 
       <section className="py-20 bg-white">

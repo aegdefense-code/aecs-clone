@@ -40,7 +40,7 @@ const MechanicalDesign = () => {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
                  <img 
-                  src="https://images.unsplash.com/photo-1544378730-8b510ed03aa9?q=80&w=2942&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2940&auto=format&fit=crop" 
                   alt="Professional CAD environment showing complex mechanical assembly" 
                   className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700" 
                  />

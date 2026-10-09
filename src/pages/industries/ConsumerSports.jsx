@@ -30,7 +30,7 @@ const ConsumerSports = () => {
         backgroundImage="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2940&auto=format&fit=crop"
       >
         <div className="mt-8 flex gap-4">
-          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Contact Us</Link>
+          <Link to="/contact" className="btn-primary py-4 px-10 text-lg shadow-xl">Discuss Your Product Idea</Link>
           <Link to="/services/prototyping" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-4 px-10 rounded-lg font-bold hover:bg-white/20 transition-all text-lg">
             View Prototyping
           </Link>
@@ -168,6 +168,7 @@ const ConsumerSports = () => {
       <CtaSection
         title="Launch Your Consumer Product Faster"
         subtitle="AECS bridges concept and production with rapid prototyping, expert sourcing, and end-to-end engineering."
+        buttonText="Discuss Your Consumer Project"
       />
     </div>
   );
