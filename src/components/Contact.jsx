@@ -13,6 +13,7 @@ import {
   Lock 
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 
 const industriesList = [
   'Automotive & Tires',
@@ -51,6 +52,7 @@ const Contact = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -66,37 +68,123 @@ const Contact = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setErrorMessage('');
     
     try {
-      const payload = {
-        ...data,
-        fileName: selectedFile ? selectedFile.name : null,
-        fileSize: selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB` : null
+      const templateParams = {
+        name: data.name,
+        company: data.company,
+        email: data.email,
+        phone: data.phone || 'N/A',
+        country: data.country || 'N/A',
+        industry: data.industry || 'N/A',
+        service: data.service,
+        description: data.description,
+        timeline: data.timeline || 'N/A',
+        fileName: selectedFile ? selectedFile.name : 'None',
+        fileSize: selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB` : 'N/A'
       };
 
-      const apiBase = import.meta.env.VITE_API_BASE_URL || '';
-      const response = await fetch(`${apiBase}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const emailjsAutoReplyId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
 
-      if (!response.ok) {
-        // Fallback for local demo or when endpoint is not running
-        console.warn("Backend API response not 200, logging inquiry locally:", payload);
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+
+      let isSent = false;
+
+      // Priority 1: EmailJS (Supports direct emails + client auto-reply)
+      if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
+        await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams, emailjsPublicKey);
+        
+        // Send auto-responder email to the user if auto-reply template is set
+        if (emailjsAutoReplyId) {
+          try {
+            await emailjs.send(emailjsServiceId, emailjsAutoReplyId, templateParams, emailjsPublicKey);
+          } catch (autoErr) {
+            console.warn("Auto-reply template warning:", autoErr);
+          }
+        }
+        isSent = true;
+      }
+      // Web3Forms (Using provided API key)
+      const activeWeb3Key = web3FormsKey || '892132b1-848a-4976-887c-6941c8ae6ad2';
+      if (activeWeb3Key) {
+        const formData = new FormData();
+        formData.append('access_key', activeWeb3Key);
+        formData.append('subject', `AECS Engineering Review: ${data.name} (${data.company})`);
+        formData.append('from_name', 'AECS Engineering Portal');
+        formData.append('name', data.name);
+        formData.append('company', data.company);
+        formData.append('email', data.email);
+        formData.append('phone', data.phone || 'N/A');
+        formData.append('country', data.country || 'N/A');
+        formData.append('industry', data.industry || 'N/A');
+        formData.append('service', data.service);
+        formData.append('timeline', data.timeline || 'N/A');
+
+        let fullMessage = `Project Challenge:\n${data.description}\n\n`;
+        fullMessage += `--- Additional Details ---\n`;
+        fullMessage += `Industry: ${data.industry || 'N/A'}\n`;
+        fullMessage += `Service: ${data.service}\n`;
+        fullMessage += `Timeline: ${data.timeline || 'N/A'}\n`;
+        fullMessage += `Phone: ${data.phone || 'N/A'}\n`;
+        fullMessage += `Country: ${data.country || 'N/A'}\n`;
+
+        if (selectedFile) {
+          fullMessage += `Attached Drawing/CAD: ${selectedFile.name} (${(selectedFile.size / 1024).toFixed(1)} KB)\n(Please request drawing file from client by replying to this email)`;
+          formData.append('file_name', selectedFile.name);
+          formData.append('file_size', `${(selectedFile.size / 1024).toFixed(1)} KB`);
+        }
+
+        formData.append('message', fullMessage);
+
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const rawText = await res.text();
+        let resData;
+        try {
+          resData = JSON.parse(rawText);
+        } catch {
+          throw new Error(`Server returned unexpected response (${res.status}): ${rawText.slice(0, 80)}`);
+        }
+
+        if (resData && resData.success) {
+          isSent = true;
+        } else {
+          throw new Error(resData?.message || 'Web3Forms submission failed');
+        }
+      }
+      // Priority 3: Custom Backend API
+      else if (apiBase) {
+        const response = await fetch(`${apiBase}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(templateParams),
+        });
+        if (response.ok) {
+          isSent = true;
+        } else {
+          throw new Error('Backend server returned an error');
+        }
+      } else {
+        throw new Error('Email service is not configured yet. Please set your EmailJS or Web3Forms keys in .env');
       }
 
-      setSubmitStatus('success');
-      reset();
-      setSelectedFile(null);
+      if (isSent) {
+        setSubmitStatus('success');
+        reset();
+        setSelectedFile(null);
+      }
     } catch (error) {
-      console.warn("Network submission warning, logged inquiry:", error);
-      // Still show success in offline/static environments so user is never stranded
-      setSubmitStatus('success');
-      reset();
-      setSelectedFile(null);
+      console.error("Submission failed:", error);
+      setErrorMessage(error.message || 'Submission failed');
+      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -368,8 +456,8 @@ const Contact = () => {
                 <div className="p-4 bg-red-50 text-red-900 rounded-2xl border border-red-200 text-sm flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="font-bold block">Submission Note</strong>
-                    <span>Unable to reach remote server. Please email your drawings directly to <strong>engineeringaecs@gmail.com</strong> or call us at <strong>+91 99615 85261</strong>.</span>
+                    <strong className="font-bold block">Submission Notice</strong>
+                    <span>{errorMessage || 'Unable to deliver message.'} Please email your drawings directly to <strong>engineeringaecs@gmail.com</strong> or call us at <strong>+91 99615 85261</strong>.</span>
                   </div>
                 </div>
               )}

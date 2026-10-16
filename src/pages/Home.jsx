@@ -193,12 +193,10 @@ const Home = () => {
          {/* Project Showcase / Portfolio */}
          <section id="featured-projects" className="py-24 bg-brand-dark text-white overflow-hidden scroll-mt-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                  <div>
-                     <span className="text-brand-secondary font-bold tracking-widest uppercase text-sm">Industrial Portfolio</span>
-                     <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight leading-tight">Featured Products & Engineering Innovations</h2>
-                  </div>
-                  <p className="text-slate-400 text-sm max-w-md">
+               <div className="mb-16">
+                  <span className="text-brand-secondary font-bold tracking-widest uppercase text-sm">Industrial Portfolio</span>
+                  <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight leading-tight">Featured Products & Engineering Innovations</h2>
+                  <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
                      Click on any product to examine high-resolution zoom imagery and detailed engineering case studies.
                   </p>
                </div>

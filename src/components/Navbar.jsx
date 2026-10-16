@@ -117,7 +117,7 @@ const Navbar = () => {
             {/* Home */}
             <Link
               to="/"
-              className={`px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+              className={`whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
             >
               Home
             </Link>
@@ -130,10 +130,10 @@ const Navbar = () => {
             >
               <Link
                 to="/services"
-                className={`flex items-center px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+                className={`flex items-center whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
               >
                 <span>Services</span>
-                <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showServices ? 'rotate-180 text-brand-primary' : ''}`} />
+                <ChevronDown size={14} className={`ml-1.5 shrink-0 transition-transform duration-200 ${showServices ? 'rotate-180 text-brand-primary' : ''}`} />
               </Link>
 
               {showServices && (
@@ -162,10 +162,10 @@ const Navbar = () => {
             >
               <Link
                 to="/industries"
-                className={`flex items-center px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+                className={`flex items-center whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
               >
                 <span>Industries</span>
-                <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showIndustries ? 'rotate-180 text-brand-primary' : ''}`} />
+                <ChevronDown size={14} className={`ml-1.5 shrink-0 transition-transform duration-200 ${showIndustries ? 'rotate-180 text-brand-primary' : ''}`} />
               </Link>
 
               {showIndustries && (
@@ -189,7 +189,7 @@ const Navbar = () => {
             {/* Projects */}
             <Link
               to="/projects"
-              className={`px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+              className={`whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
             >
               Projects
             </Link>
@@ -197,7 +197,7 @@ const Navbar = () => {
             {/* Products */}
             <Link
               to="/products"
-              className={`px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+              className={`whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
             >
               Products
             </Link>
@@ -210,10 +210,10 @@ const Navbar = () => {
             >
               <Link
                 to="/resources"
-                className={`flex items-center px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+                className={`flex items-center whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
               >
                 <span>Technical Resources</span>
-                <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showResources ? 'rotate-180 text-brand-primary' : ''}`} />
+                <ChevronDown size={14} className={`ml-1.5 shrink-0 transition-transform duration-200 ${showResources ? 'rotate-180 text-brand-primary' : ''}`} />
               </Link>
 
               {showResources && (
@@ -237,17 +237,9 @@ const Navbar = () => {
             {/* About */}
             <Link
               to="/about"
-              className={`px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
+              className={`whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
             >
               About
-            </Link>
-
-            {/* Contact */}
-            <Link
-              to="/contact"
-              className={`px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors ${isSolid ? 'text-slate-700 hover:text-brand-primary' : 'text-white hover:text-amber-400'}`}
-            >
-              Contact
             </Link>
 
             {/* Persistent Top-Right Primary CTA Button */}
@@ -423,15 +415,6 @@ const Navbar = () => {
                 onClick={closeAllMenus}
               >
                 About
-              </Link>
-
-              {/* Contact */}
-              <Link
-                to="/contact"
-                className="block px-4 py-3 text-sm font-black text-slate-800 uppercase tracking-wider hover:text-brand-primary transition-colors"
-                onClick={closeAllMenus}
-              >
-                Contact
               </Link>
 
               {/* Mobile Action Buttons */}
