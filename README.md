@@ -12,36 +12,50 @@ A premium, high-performance engineering portal built for **American Engineering 
 
 ## 🗺️ Project Sitemap
 
-The application is structured into clearly defined hubs for engineering disciplines, materials science, and industrial sectors.
+The application is structured into clearly defined hubs for engineering disciplines, materials science, industrial sectors, and technology solutions.
 
 ### 🏠 Core Hubs
 - **[Home](/)**: Hero showcase, "Why Choose" differentiators, featured portfolio, and leadership vision.
 - **[About Us](/about)**: Corporate mission, ISO 9001:2015 recognition, and academic/research alliances.
-- **[Services Overview](/services)**: A multi-disciplinary drill-down of all engineering capabilities.
-- **[Industries Overview](/industries)**: Portfolio of specialized applications (Automotive, Marine, etc.).
-- **[Resources](/resources)**: Knowledge hub, whitepapers, and technical case studies.
-- **[Get in Touch](/contact)**: Strategic inquiry portal for project analysis.
+- **[Services Overview](/services)**: A multi-disciplinary drill-down of all 9 engineering capabilities.
+- **[Industries Overview](/industries)**: Portfolio of specialized applications across 6 major sectors.
+- **[Projects](/projects)**: Real-world engineering case studies, simulations, and deployed industrial systems.
+- **[Products](/products)**: Proprietary testing rigs, certified safety cages, and defense mobility products.
+- **[Technical Resources](/resources)**: Knowledge hub, white papers, technical articles, and video demonstrations.
+- **[AI & Generative Engineering](/ai)**: Generative engineering, predictive maintenance, and IoT solutions.
+- **[Contact & Project Inquiries](/contact)**: Strategic engineering inquiry portal with drawing upload capabilities.
 
 ### ⚙️ Engineering Disciplines (`/services/*`)
-- **Product Manufacturing**: End-to-end mass production strategies.
-- **NPD (New Product Development)**: Accelerated 7-step innovation cycles.
-- **FEA (Finite Element Analysis)**: Advanced stress simulation and validation.
-- **Mechanical Design**: CAD/CAM modeling and material specification.
-- **Rapid Prototyping**: 3D printing and precision CNC machining.
-- **Testing & Certification**: Global compliance for rubber, plastics, and composites.
-- **Tyre Testing**: Specialized industrial equipment and lifecycle support.
+- **[Product Manufacturing](/services/product-manufacturing)**: End-to-end mass production strategies.
+- **[NPD (New Product Development)](/services/npd)**: Accelerated 7-step innovation cycles.
+- **[FEA (Finite Element Analysis)](/services/fea)**: Advanced stress simulation, hyperelastic modeling, and validation.
+- **[CFD & Thermal Analysis](/services/cfd-thermal)**: Aerodynamic modeling, conjugate heat transfer, and thermal management.
+- **[Digital Twin Engineering](/services/digital-twin)**: Real-time sensor telemetry, physics simulation, and virtual commissioning.
+- **[Mechanical Design](/services/design)**: CAD/CAM modeling, tolerance stacks, and design optimization.
+- **[Rapid Prototyping](/services/prototyping)**: Additive manufacturing, 3D printing, and precision CNC machining.
+- **[Testing & Certification](/services/testing)**: Global ASTM/ISO/DIN compliance for rubber, plastics, and composites.
+- **[Tyre Testing](/services/tyre-testing)**: Specialized industrial testing machinery and dynamic force rigs.
+
+### 🏭 Industrial Sectors (`/industries/*`)
+- **[Automotive & Tires](/industries/automotive)**: Dynamic vehicle testing, chassis stiffness, and tire engineering.
+- **[Defense & Mobility](/industries/defense-mobility)**: Ballistic-grade composite run-flats and military-spec components.
+- **[Marine Engineering](/industries/marine)**: Offshore pneumatic fenders, vessel structural mechanics, and corrosion resistance.
+- **[Medical Devices](/industries/medical)**: Biocompatible polymers, ISO 13485 compliance, and surgical mechanics.
+- **[Consumer & Sports](/industries/consumer-sports)**: Impact-damping elastomeric structures and athletic equipment.
+- **[Industrial Equipment](/industries/industrial-equipment)**: Heavy industrial machinery, safety enclosures, and pressure vessels.
 
 ### 🧪 Materials Science (`/materials/*`)
 - **[Materials Overview](/materials)**: Engineering properties of advanced polymers and alloys.
-- **Rubber Tech**: High-performance elastomers for industrial use.
-- **Plastics**: Advanced thermoplastic engineering.
-- **Composites**: Structural fiber-reinforced polymers.
+- **[Rubber & Elastomers](/materials/rubber)**: High-performance elastomers and hyperelastic characterization.
+- **[Plastics & Polymers](/materials/plastic)**: Advanced thermoplastic engineering and mold flow simulation.
+- **[Composites](/materials/composite)**: Structural fiber-reinforced polymers and laminate failure analysis.
 
 ### ⚖️ Legal & Compliance
 - **Merchant Policies**: `/policies/merchant`
 - **Legal Notice**: `/policies/legal`
 - **Privacy Policy**: `/policies/privacy`
 - **Terms of Use**: `/policies/terms`
+- **XML Sitemap**: `/sitemap.xml`
 
 ---
 
