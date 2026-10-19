@@ -197,7 +197,7 @@ const Home = () => {
                   <span className="text-brand-secondary font-bold tracking-widest uppercase text-sm">Industrial Portfolio</span>
                   <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight leading-tight">Featured Products & Engineering Innovations</h2>
                   <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                     Click on any product to examine high-resolution zoom imagery and detailed engineering case studies.
+                     Explore our proprietary engineering platforms, certified safety systems, and advanced industrial innovations. Click any product to view detailed case studies and technical specifications.
                   </p>
                </div>
 

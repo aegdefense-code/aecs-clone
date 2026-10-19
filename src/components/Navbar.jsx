@@ -63,10 +63,10 @@ const Navbar = () => {
 
   const resourceLinks = [
     { name: 'Technical Articles', path: '/resources#articles' },
-    { name: 'Engineering Case Studies', path: '/projects' },
     { name: 'White Papers & Guides', path: '/resources#white-papers' },
     { name: 'Videos', path: '/resources#videos' },
     { name: 'All Resources & Knowledge Hub', path: '/resources' },
+    { name: 'Engineering Case Studies', path: '/projects' },
   ];
 
   const closeAllMenus = () => {
@@ -223,7 +223,9 @@ const Navbar = () => {
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="block px-4 py-2.5 text-xs xl:text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors"
+                        className={`block px-4 py-2.5 text-xs xl:text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors ${
+                          link.path === '/projects' ? 'border-t border-slate-100 mt-1 pt-2.5' : ''
+                        }`}
                         onClick={() => setShowResources(false)}
                       >
                         {link.name}
@@ -397,7 +399,9 @@ const Navbar = () => {
                         <Link
                           key={link.name}
                           to={link.path}
-                          className="block px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all"
+                          className={`block px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5 rounded-lg transition-all ${
+                            link.path === '/projects' ? 'border-t border-slate-200/60 pt-2.5 mt-1' : ''
+                          }`}
                           onClick={closeAllMenus}
                         >
                           {link.name}

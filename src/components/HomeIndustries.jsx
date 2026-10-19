@@ -60,16 +60,14 @@ const HomeIndustries = () => {
   return (
     <section className="py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="text-xs font-bold text-brand-primary uppercase tracking-widest block mb-2">
-              Industry Verticals
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Sectors We Engineer For
-            </h2>
-          </div>
-          <p className="text-slate-600 text-sm sm:text-base max-w-md">
+        <div className="mb-16">
+          <span className="text-xs font-bold text-brand-primary uppercase tracking-widest block mb-2">
+            Industry Verticals
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            Sectors We Engineer For
+          </h2>
+          <p className="mt-3 text-slate-600 text-sm sm:text-base max-w-2xl leading-relaxed">
             Our specialized domain engineers understand the specific regulatory, environmental, and duty-cycle constraints of your industry.
           </p>
         </div>
