@@ -53,7 +53,7 @@ const Navbar = () => {
   ];
 
   const industryLinks = [
-    { name: 'Automotive & Tires', path: '/industries/automotive' },
+    { name: 'Automotive', path: '/industries/automotive' },
     { name: 'Defense & Mobility', path: '/industries/defense-mobility' },
     { name: 'Marine Engineering', path: '/industries/marine' },
     { name: 'Medical Devices', path: '/industries/medical' },

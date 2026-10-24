@@ -39,7 +39,7 @@ const Automotive = () => {
   return (
     <div className="bg-white">
       <PageHero
-        title="Automotive & Tires"
+        title="Automotive"
         subtitle="End-to-end automotive engineering and manufacturing solutions for OEMs, Tier-1 and Tier-2 suppliers—from structural design to final finish tire validation."
         backgroundImage="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2825&auto=format&fit=crop"
       >
@@ -97,14 +97,14 @@ const Automotive = () => {
         </div>
       </section>
 
-      {/* Core Capabilities Grid */}
+      {/* Core Capabilities Grid - Centered symmetrically */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-black text-gray-900 tracking-tighter uppercase italic mb-4">Core Capabilities</h2>
             <div className="w-20 h-1.5 bg-brand-primary mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {capabilities.map((cap, i) => (
               <motion.div
                 key={i}
@@ -149,17 +149,16 @@ const Automotive = () => {
         </div>
       </section>
 
-      {/* Standards */}
+      {/* Standards - Centered symmetrically */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-gray-900 tracking-tighter uppercase italic">Standards & Compliance</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               { code: "ISO 9001:2015", desc: "Quality Management" },
               { code: "IATF 16949", desc: "Automotive QMS" },
-              // { code: "ECE R30 & R117", desc: "Tyre Safety Regs" },
               { code: "SAE Standards", desc: "Automotive Testing" }
             ].map((std, i) => (
               <div key={i} className="text-center p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-brand-primary transition-colors">

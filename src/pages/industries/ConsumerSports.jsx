@@ -7,7 +7,7 @@ import { Activity, Package, TrendingUp, Users, CheckCircle2, ChevronRight } from
 
 const capabilities = [
   { title: "Wearables Development", desc: "End-to-end engineering for smart wearables including ergonomic design, sensor integration, material selection, and DFM (design for manufacturability)." },
-  { title: "CPG Packaging Analysis", desc: "Structural and aesthetic analysis of consumer goods packaging to optimize for protection, cost, sustainability, and shelf appeal." },
+  { title: "Enclosure & Housing Analysis", desc: "Structural, thermal, and ergonomic engineering of device enclosures to optimize durability, user comfort, and aesthetic appeal." },
   { title: "High-Volume Sourcing", desc: "AECS directly manages procurement and pricing negotiations with commercial and custom manufacturers to reduce cost and lead times." },
   { title: "3D Printing & Rapid Prototyping", desc: "FDM, SLA, and SLS printing for rapid, functional test models—enabling fast market validation before committing to tooling." },
   { title: "Quick-Turn Urethane Casting", desc: "Short-run silicone mold casting for 10–500 units, ideal for pre-production market testing and functional pilot batches." },
@@ -143,18 +143,17 @@ const ConsumerSports = () => {
         </div>
       </section>
 
-      {/* Sectors Served */}
+      {/* Sectors Served - Free of Apparel and Packaged Goods (CPG), Centered symmetrically */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-gray-900 tracking-tighter uppercase italic">Product Categories We Serve</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { code: "Wearables", desc: "Smart & Athletic Gear" },
-              { code: "Sports", desc: "Equipment & Apparel" },
-              { code: "Home", desc: "Consumer Appliances" },
-              { code: "CPG", desc: "Packaged Goods" }
+              { code: "Wearables", desc: "Smart Biometrics & Trackers" },
+              { code: "Sports Tech", desc: "Athletic & Training Equipment" },
+              { code: "Smart Home", desc: "Connected Consumer Appliances" }
             ].map((cat, i) => (
               <div key={i} className="text-center p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-orange-500 transition-colors">
                 <p className="text-2xl font-black text-orange-500 uppercase tracking-tight mb-2">{cat.code}</p>

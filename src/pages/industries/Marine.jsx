@@ -8,12 +8,18 @@ import marineImg from '../../assets/images/marine-engineering.jpg';
 import SEO from '../../components/SEO';
 
 const capabilities = [
-  // { title: "CFD Hull Analysis", desc: "Advanced computational fluid dynamics simulations to optimize hydrodynamic performance and reduce fuel consumption." },
-  // { title: "Propeller Reverse Engineering", desc: "Precise 3D scanning and CAD reconstruction of existing propellers for performance analysis or accurate replacement." },
-  // { title: "Onboard HVAC & Plumbing", desc: "Engineering of climate control and fluid systems built to withstand corrosion, vibration, and harsh marine environments." },
-  // { title: "Pneumatic Fender Design", desc: "Design, analysis, and testing of ISO 17357-compliant marine fenders for safe port and vessel-to-vessel docking." },
-  // { title: "Structural Hull Design", desc: "Detailed finite element analysis (FEA) of hull structures for stress distribution, fatigue life, and wave impact loads." },
-  { title: "Naval & Offshore Systems", desc: "Engineering for naval combat vessels and offshore platforms requiring extreme structural integrity." }
+  { 
+    title: "Naval & Offshore Systems", 
+    desc: "Engineering for naval combat vessels and offshore platforms requiring extreme structural integrity and combat readiness." 
+  },
+  { 
+    title: "Pneumatic Fender Design", 
+    desc: "Design, finite element simulation, and verification of ISO 17357-compliant high-absorption marine fenders for port and STS operations." 
+  },
+  { 
+    title: "Hydrodynamic & Hull Simulation", 
+    desc: "Advanced computational fluid dynamics (CFD) and structural FEA of hull geometries under extreme wave impact and hydrodynamic loads." 
+  }
 ];
 
 const stats = [
@@ -29,11 +35,6 @@ const projects = [
     desc: "AECS has executed government contract projects for the design and manufacturing of industrial fenders, meeting stringent regulatory and performance requirements.",
     points: ["ISO 17357 compliance", "Rubber material engineering", "Performance testing & certification"]
   },
-  // {
-  //   title: "Naval Vessel Engineering",
-  //   desc: "Structural and fluid systems engineering specifically designed for naval combat vessels, including specialized hull modifications and equipment integration.",
-  //   points: ["Hydrodynamic drag reduction", "Hull stress analysis under combat loads", "Propulsion system optimization"]
-  // },
   {
     title: "Marine Product Development",
     desc: "Full NPD support for marine products—from concept design and 3D CAD models to prototype manufacturing and functional test-ready assemblies.",
@@ -114,14 +115,14 @@ const Marine = () => {
         </div>
       </section>
 
-      {/* Core Capabilities Grid */}
+      {/* Core Capabilities Grid - Fully populated without blank space */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-black text-gray-900 tracking-tighter uppercase italic mb-4">Core Capabilities</h2>
             <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {capabilities.map((cap, i) => (
               <motion.div
                 key={i}
@@ -140,14 +141,14 @@ const Marine = () => {
         </div>
       </section>
 
-      {/* Projects / Applications */}
+      {/* Projects / Applications - Centered symmetrically */}
       <section className="py-24 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-black tracking-tighter uppercase italic mb-4">Application Areas</h2>
             <div className="w-20 h-1.5 bg-blue-500 mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {projects.map((proj, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-3xl p-10 hover:border-blue-400 transition-colors group">
                 <h3 className="text-2xl font-black uppercase tracking-tight mb-4 group-hover:text-blue-400 transition-colors">{proj.title}</h3>
@@ -166,17 +167,16 @@ const Marine = () => {
         </div>
       </section>
 
-      {/* Standards */}
+      {/* Standards - Centered symmetrically */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-gray-900 tracking-tighter uppercase italic">Standards & Compliance</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               { code: "ISO 17357", desc: "Pneumatic Fenders" },
               { code: "ISO 9001", desc: "Quality Management" },
-              // { code: "MARPOL", desc: "Marine Pollution Regs" },
               { code: "SOLAS", desc: "Ship Safety Standards" }
             ].map((std, i) => (
               <div key={i} className="text-center p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-blue-600 transition-colors">
