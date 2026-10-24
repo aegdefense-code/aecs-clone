@@ -5,25 +5,11 @@ import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import productManufacturingImg from '../../assets/images/services/product-manufacturing.jpg';
 import { 
-  Settings, Wrench, CheckCircle, Package, Lightbulb, 
-  Search, BarChart4, FastForward, ShieldCheck, Trophy, 
+  Settings, CheckCircle, ShieldCheck, Trophy, 
   Star, TrendingUp, AlertTriangle, FileText, ChevronRight
 } from 'lucide-react';
 
 const ProductManufacturing = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
     <div className="bg-white">
       <PageHero 
@@ -75,42 +61,8 @@ const ProductManufacturing = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Product Design and Development Services</h2>
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Transforming inventive ideas into tangible, market-ready products with our array of technical offerings.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: <Lightbulb />, title: "Ideation", desc: "Developing creative ideas based on your business goals and detailed market research." },
-              { icon: <Search />, title: "Concept Testing", desc: "Thorough research to evaluate the feasibility and potential of your product concept." },
-              { icon: <Settings />, title: "Industrial Design", desc: "Creating designs that meet specific product requirements and market demands." },
-              { icon: <BarChart4 />, title: "Market Research", desc: "Extensive research to identify target markets and analyze potential competitors." },
-              { icon: <Package />, title: "Prototyping", desc: "Using state-of-the-art technology to create prototypes for testing and validation." },
-              { icon: <FastForward />, title: "Rapid Development", desc: "Efficient processes used to develop and launch your product quickly." },
-              { icon: <Wrench />, title: "Custom Solutions", desc: "Tailored development to meet your unique product needs and technical specs." }
-            ].map((service, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center group transition-all hover:shadow-md"
-              >
-                <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-6 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
-                  {React.cloneElement(service.icon, { className: 'w-8 h-8' })}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Develop & Challenges */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Why Develop */}
@@ -200,34 +152,6 @@ const ProductManufacturing = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Patent Services */}
-      <section className="py-20 bg-red-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-white rounded-3xl p-10 md:p-16 shadow-xl border border-red-100 flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-2/3">
-                 <h2 className="text-3xl font-bold text-gray-900 mb-6 font-primary text-center md:text-left">Protect Your Intellectual Property</h2>
-                 <p className="text-lg text-gray-600 mb-8 text-justify md:text-left">
-                   Securing a patent can be complex. AECS’s team of engineers and IP professionals supports clients throughout the journey, helping to protect and maximize innovation value.
-                 </p>
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    {["Patent Search & Analysis", "Application Drafting & Filing", "Patent Prosecution", "IP Portfolio Expansion"].map((item, idx) => (
-                      <div key={idx} className="flex items-center text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-brand-primary mr-3" />
-                        <span className="font-semibold">{item}</span>
-                      </div>
-                    ))}
-                 </div>
-                 <Link to="/contact" className="btn-primary py-3 px-10 text-lg inline-block text-center w-full md:w-auto">Get IP Support Today</Link>
-              </div>
-              <div className="lg:w-1/3 flex justify-center">
-                 <div className="w-48 h-48 rounded-full bg-red-100 flex items-center justify-center">
-                    <ShieldCheck className="w-24 h-24 text-brand-primary" />
-                 </div>
-              </div>
-           </div>
         </div>
       </section>
 
