@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import { Activity, Package, TrendingUp, Users, CheckCircle2, ChevronRight } from 'lucide-react';
+import wearablesSportsImg from '../../assets/images/wearables-sports.png';
 
 const capabilities = [
   { title: "Wearables Development", desc: "End-to-end engineering for smart wearables including ergonomic design, sensor integration, material selection, and DFM (design for manufacturability)." },
@@ -78,8 +79,8 @@ const ConsumerSports = () => {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <img
-                src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2940&auto=format&fit=crop"
-                alt="Consumer Product Engineering"
+                src={wearablesSportsImg}
+                alt="Precision Wearable Engineering and Smartwatch Design"
                 className="w-full h-[500px] object-cover rounded-[40px] shadow-2xl border border-gray-100"
               />
             </motion.div>
