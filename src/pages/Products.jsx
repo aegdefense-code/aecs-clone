@@ -10,16 +10,14 @@ import appleFenderImg from '../assets/images/portfolio/apple-fender.jfif';
 import pneumaticFenderImg from '../assets/images/portfolio/pneumatic-fender.jfif';
 import airlessTireImg from '../assets/images/portfolio/airless-tire.jpeg';
 import polingMachineImg from '../assets/images/machines/tyre-testing/cx111-1.jpg';
+import heroFeaImg from '../assets/images/hero-fea.webp';
 import { 
   ShieldCheck, 
-  Download, 
   ArrowRight, 
   CheckCircle2, 
   X, 
   Send, 
   Gauge, 
-  Layers, 
-  FileText, 
   SlidersHorizontal 
 } from 'lucide-react';
 
@@ -148,14 +146,71 @@ const categories = [
   'Workshop Safety Systems'
 ];
 
-const Products = () => {
+const projectsData = [
+  {
+    id: 'zero-pressure-run-flat',
+    title: 'Carbon-Fiber Zero-Pressure Run-Flat Tire System',
+    category: 'Defense & Mobility',
+    image: runFlatImg,
+    challenge: 'Maintain heavy tactical vehicle mobility at 50 km/h following complete catastrophic pneumatic pressure loss.',
+    solution: 'Designed an internal dual-stage elastomer and carbon-reinforced composite run-flat insert with nonlinear FEA.',
+    results: 'Validated through 85+ km continuous zero-pressure run-flat testing with zero thermal degradation.',
+    tags: ['Nonlinear FEA', 'Composites', 'Elastomers', 'Military Mobility'],
+  },
+  {
+    id: 'pneumatic-marine-fenders',
+    title: 'ISO 17357-1 High-Absorption Pneumatic Floating Fenders',
+    category: 'Marine Engineering',
+    image: pneumaticFenderImg,
+    challenge: 'Absorb extreme kinetic berthing energy during open-sea Ship-to-Ship (STS) transfers without localized hull deflection.',
+    solution: 'Engineered multi-layered synthetic tyre-cord vulcanized rubber bladders with aircraft tyre netting meeting ISO 17357.',
+    results: 'Deployed across major deep-water ports and Indian Navy shipyards with 100% operational reliability.',
+    tags: ['ISO 17357-1', 'Rubber Engineering', 'STS Transfers', 'Hydrodynamics'],
+  },
+  {
+    id: 'tire-testing-rig-calibration',
+    title: 'Automated Endurance & High-Speed Tire Testing Machines',
+    category: 'Industrial & Testing',
+    image: polingMachineImg,
+    challenge: 'Develop automated multi-axis force, moment, and endurance testing capabilities for passenger and truck tires up to 250 km/h.',
+    solution: 'Engineered custom fixture interfaces, automated servo-hydraulic controls, and high-frequency DAQ with Poling Group.',
+    results: 'Enabled precision rolling resistance and dynamic uniformity compliance testing for Tier-1 tire OEMs across India.',
+    tags: ['Poling Group', 'Testing Automation', 'Dynamic Load', 'ISO 10191'],
+  },
+  {
+    id: 'hyperelastic-elastomer-fea',
+    title: 'Nonlinear Hyperelastic FEA for Heavy Vehicle Bushings',
+    category: 'Simulation',
+    image: heroFeaImg,
+    challenge: 'Predict fatigue life, cyclic stress softening, and large strain deflection in vulcanized suspension bushings.',
+    solution: 'Formulated multi-axial test curve fittings into Ogden and Mooney-Rivlin strain energy functions for full 3D contact simulation.',
+    results: 'Correlated virtual FEA model within 4.2% of physical dynamometer test data, cutting prototype tooling iterations from 5 to 1.',
+    tags: ['Abaqus FEA', 'Hyperelasticity', 'Fatigue Life', 'Material Characterization'],
+  }
+];
+
+const projectCategories = [
+  'All Case Studies', 
+  'Defense & Mobility', 
+  'Marine Engineering', 
+  'Industrial & Testing', 
+  'Simulation'
+];
+
+const Products = ({ defaultView = 'products' }) => {
+  const [mainTab, setMainTab] = useState(defaultView);
   const [activeCategory, setActiveCategory] = useState('All Products');
+  const [activeProjectCategory, setActiveProjectCategory] = useState('All Case Studies');
   const [selectedProductForRfq, setSelectedProductForRfq] = useState(null);
   const [rfqSubmitted, setRfqSubmitted] = useState(false);
 
   const filteredProducts = activeCategory === 'All Products'
     ? productsData
     : productsData.filter((p) => p.category === activeCategory);
+
+  const filteredProjects = activeProjectCategory === 'All Case Studies'
+    ? projectsData
+    : projectsData.filter((p) => p.category === activeProjectCategory);
 
   const openRfqModal = (product) => {
     setSelectedProductForRfq(product);
@@ -187,133 +242,266 @@ const Products = () => {
       />
 
       <PageHero
-        title="AECS Engineered Products & Technology Solutions"
-        subtitle="Industrial testing machinery, certified marine safety systems, and tactical mobility products engineered to international standards."
+        title={mainTab === 'projects' ? "Engineering Projects & Case Studies" : "AECS Engineered Products & Technology Solutions"}
+        subtitle={mainTab === 'projects' ? "Real engineering challenges. Analytical solutions. Physical products. Measurable results." : "Industrial testing machinery, certified marine safety systems, and tactical mobility products engineered to international standards."}
         backgroundImage="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2940&auto=format&fit=crop"
       />
 
-      {/* Category Filter Pills */}
-      <section className="py-8 bg-slate-50 border-b border-slate-200 sticky top-16 z-30 backdrop-blur-md bg-slate-50/90">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
-                  activeCategory === cat
-                    ? 'bg-brand-primary text-white shadow-md'
-                    : 'bg-white text-slate-700 hover:bg-slate-200/70 border border-slate-200'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+      {/* Unified View Switcher: Products vs Projects */}
+      <section className="bg-slate-900 border-b border-slate-800 text-white py-4 sticky top-16 z-40 backdrop-blur-md bg-slate-900/95">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-center sm:text-left">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-brand-primary block">
+              Unified Engineering Showcase
+            </span>
+            <span className="text-xs sm:text-sm font-semibold text-slate-300">
+              Browse manufactured equipment catalogs or proven client case studies
+            </span>
+          </div>
+
+          <div className="inline-flex p-1 rounded-2xl bg-slate-800 border border-slate-700">
+            <button
+              onClick={() => setMainTab('products')}
+              className={`px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                mainTab === 'products'
+                  ? 'bg-brand-primary text-white shadow-md'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Manufactured Products ({productsData.length})
+            </button>
+            <button
+              onClick={() => setMainTab('projects')}
+              className={`px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                mainTab === 'projects'
+                  ? 'bg-brand-primary text-white shadow-md'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Projects & Case Studies ({projectsData.length})
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {filteredProducts.map((prod, idx) => (
-              <motion.div
-                key={prod.id}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className={`bg-slate-50/60 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col ${
-                  idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                }`}
-              >
-                {/* Visual Half */}
-                <div className="lg:w-1/2 relative min-h-[340px] lg:min-h-[440px] bg-slate-950 overflow-hidden group">
-                  <img
-                    src={prod.image}
-                    alt={prod.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                  
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                      {prod.category}
-                    </span>
-                  </div>
+      {mainTab === 'products' ? (
+        <>
+          {/* Category Filter Pills for Products */}
+          <section className="py-6 bg-slate-50 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+                      activeCategory === cat
+                        ? 'bg-brand-primary text-white shadow-md'
+                        : 'bg-white text-slate-700 hover:bg-slate-200/70 border border-slate-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
 
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md text-amber-300 text-xs font-semibold border border-white/10">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                      {prod.compliance}
-                    </span>
-                  </div>
-                </div>
+          {/* Products Grid */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="space-y-16">
+                {filteredProducts.map((prod, idx) => (
+                  <motion.div
+                    key={prod.id}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className={`bg-slate-50/60 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col ${
+                      idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
+                    }`}
+                  >
+                    {/* Visual Half */}
+                    <div className="lg:w-1/2 relative min-h-[340px] lg:min-h-[440px] bg-slate-950 overflow-hidden group">
+                      <img
+                        src={prod.image}
+                        alt={prod.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                      
+                      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                        <span className="bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                          {prod.category}
+                        </span>
+                      </div>
 
-                {/* Content Half */}
-                <div className="lg:w-1/2 p-7 sm:p-10 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-extrabold uppercase tracking-widest text-brand-primary block mb-1">
-                      {prod.subtitle}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight">
-                      {prod.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      {prod.description}
-                    </p>
-
-                    {/* Technical Specifications Grid */}
-                    <div className="mb-6 p-4 rounded-2xl bg-white border border-slate-200/80">
-                      <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                        <Gauge className="w-3.5 h-3.5 text-brand-primary" />
-                        Technical Parameters
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {prod.specs.map((sp, sIdx) => (
-                          <div key={sIdx} className="text-xs">
-                            <span className="text-slate-500 font-medium block">{sp.label}:</span>
-                            <span className="text-slate-900 font-bold block">{sp.val}</span>
-                          </div>
-                        ))}
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md text-amber-300 text-xs font-semibold border border-white/10">
+                          <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                          {prod.compliance}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Features list */}
-                    <div className="space-y-2 mb-8">
-                      {prod.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                          <span>{feat}</span>
+                    {/* Content Half */}
+                    <div className="lg:w-1/2 p-7 sm:p-10 flex flex-col justify-between">
+                      <div>
+                        <span className="text-xs font-extrabold uppercase tracking-widest text-brand-primary block mb-1">
+                          {prod.subtitle}
+                        </span>
+                        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight">
+                          {prod.title}
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                          {prod.description}
+                        </p>
+
+                        {/* Technical Specifications Grid */}
+                        <div className="mb-6 p-4 rounded-2xl bg-white border border-slate-200/80">
+                          <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                            <Gauge className="w-3.5 h-3.5 text-brand-primary" />
+                            Technical Parameters
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            {prod.specs.map((sp, sIdx) => (
+                              <div key={sIdx} className="text-xs">
+                                <span className="text-slate-500 font-medium block">{sp.label}:</span>
+                                <span className="text-slate-900 font-bold block">{sp.val}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      ))}
+
+                        {/* Features list */}
+                        <div className="space-y-2 mb-8">
+                          {prod.features.map((feat, fIdx) => (
+                            <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Contextual B2B CTAs */}
+                      <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-3">
+                        <button
+                          onClick={() => openRfqModal(prod)}
+                          className="btn-primary py-3 px-6 rounded-xl font-bold text-xs sm:text-sm shadow-md inline-flex items-center gap-2 cursor-pointer"
+                        >
+                          <span>{prod.ctaText}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+
+                        <Link
+                          to="/contact"
+                          className="py-3 px-5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 transition-colors"
+                        >
+                          Discuss Application
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <>
+          {/* Category Filter Pills for Projects */}
+          <section className="py-6 bg-slate-50 border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+                {projectCategories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveProjectCategory(cat)}
+                    className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+                      activeProjectCategory === cat
+                        ? 'bg-brand-primary text-white shadow-md'
+                        : 'bg-white text-slate-700 hover:bg-slate-200/70 border border-slate-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
 
-                  {/* Contextual B2B CTAs */}
-                  <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-3">
-                    <button
-                      onClick={() => openRfqModal(prod)}
-                      className="btn-primary py-3 px-6 rounded-xl font-bold text-xs sm:text-sm shadow-md inline-flex items-center gap-2 cursor-pointer"
-                    >
-                      <span>{prod.ctaText}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
+          {/* Projects & Case Studies Grid */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {filteredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                  >
+                    <div className="relative h-64 overflow-hidden bg-slate-900">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-amber-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        {project.category}
+                      </div>
+                    </div>
 
-                    <Link
-                      to="/contact"
-                      className="py-3 px-5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 transition-colors"
-                    >
-                      Discuss Application
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                    <div className="p-7 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xl font-black text-slate-900 mb-3 leading-snug group-hover:text-brand-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <div className="space-y-3 mb-6 text-sm text-slate-600">
+                          <div>
+                            <strong className="text-slate-900 block text-xs uppercase tracking-wider text-slate-400 mb-0.5">Challenge</strong>
+                            <p>{project.challenge}</p>
+                          </div>
+                          <div>
+                            <strong className="text-slate-900 block text-xs uppercase tracking-wider text-slate-400 mb-0.5">AECS Solution</strong>
+                            <p>{project.solution}</p>
+                          </div>
+                          <div className="bg-emerald-50 border border-emerald-200 p-3 rounded-xl">
+                            <strong className="text-emerald-900 block text-xs uppercase tracking-wider font-bold mb-0.5">Measurable Result</strong>
+                            <p className="text-emerald-800 text-xs font-medium">{project.results}</p>
+                          </div>
+                        </div>
+
+                        {/* Tags */}
+                        {project.tags && (
+                          <div className="flex flex-wrap gap-1.5 mb-6">
+                            {project.tags.map((tag, tIdx) => (
+                              <span key={tIdx} className="bg-white border border-slate-200 text-slate-600 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      <Link
+                        to="/contact"
+                        className="inline-flex items-center justify-between text-sm font-bold text-brand-primary hover:text-red-700 transition-colors pt-4 border-t border-slate-200"
+                      >
+                        <span>Discuss Similar Project</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Technical RFQ / Specification Modal */}
       <AnimatePresence>

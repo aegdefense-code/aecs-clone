@@ -353,10 +353,8 @@ const Resources = () => {
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash === 'articles') setActiveTab('articles');
-    else if (hash === 'white-papers') setActiveTab('white-papers');
+    else if (hash === 'white-papers' || hash === 'downloads') setActiveTab('white-papers');
     else if (hash === 'videos') setActiveTab('videos');
-    else if (hash === 'downloads') setActiveTab('downloads');
-    // else if (hash === 'faqs') setActiveTab('faqs');
     else if (hash === 'all') setActiveTab('all');
   }, [location.hash]);
 
@@ -416,8 +414,8 @@ const Resources = () => {
           <a href="#articles" onClick={() => setActiveTab('articles')} className="btn-primary py-3.5 px-8 text-sm shadow-xl font-bold uppercase tracking-wider">
             Explore Technical Articles
           </a>
-          <a href="#downloads" onClick={() => setActiveTab('downloads')} className="py-3.5 px-8 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all text-sm backdrop-blur-sm uppercase tracking-wider">
-            Download White Papers
+          <a href="#white-papers" onClick={() => setActiveTab('white-papers')} className="py-3.5 px-8 rounded-xl font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all text-sm backdrop-blur-sm uppercase tracking-wider">
+            Download White Papers & Guides
           </a>
         </div>
       </PageHero>
@@ -432,9 +430,8 @@ const Resources = () => {
               {[
                 { id: 'all', label: 'All Resources' },
                 { id: 'articles', label: 'Technical Articles', anchor: '#articles' },
-                { id: 'white-papers', label: 'White Papers', anchor: '#white-papers' },
+                { id: 'white-papers', label: 'White Papers & Downloads', anchor: '#white-papers' },
                 { id: 'videos', label: 'Videos', anchor: '#videos' },
-                { id: 'downloads', label: 'Downloads & Guides', anchor: '#downloads' },
                 // { id: 'faqs', label: 'FAQs', anchor: '#faqs' },
               ].map((tab) => (
                 <a
@@ -584,16 +581,16 @@ const Resources = () => {
           </section>
         )}
 
-        {/* 2. WHITE PAPERS SECTION */}
-        {(activeTab === 'all' || activeTab === 'white-papers' || activeTab === 'downloads') && (
+        {/* 2. WHITE PAPERS & DOWNLOADS SECTION */}
+        {(activeTab === 'all' || activeTab === 'white-papers') && (
           <section id="white-papers" className="scroll-mt-36">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-xs font-bold text-brand-primary uppercase tracking-widest block mb-2">
-                  Official Technical Publication
+                  Official Technical Publication & Downloads
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-                  Featured Engineering White Paper
+                  Featured Engineering White Papers & Downloads
                 </h2>
                 <p className="text-slate-600 text-sm mt-2 max-w-2xl leading-relaxed">
                   Explore our clinical IoT and connected health architecture white paper developed by American Engineering Group (AEG) in partnership with NeST Digital.

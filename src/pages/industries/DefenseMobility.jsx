@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import PageHero from '../../components/PageHero';
 import CtaSection from '../../components/CtaSection';
 import SEO from '../../components/SEO';
+import defenseVehicleImg from '../../assets/images/defense-vehicle.jpg';
 import { 
   ShieldCheck, 
   Crosshair, 
@@ -78,7 +79,7 @@ const DefenseMobility = () => {
       <PageHero
         title="Defense & Mobility Engineering"
         subtitle="Mission-Critical Mobility, Tactical Run-Flat Technology, and High-Energy Impact Protection"
-        backgroundImage="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=2940&auto=format&fit=crop"
+        backgroundImage={defenseVehicleImg}
       >
         <div className="mt-8 flex flex-wrap gap-4">
           <Link to="/contact" className="btn-primary py-3.5 px-8 text-base shadow-xl">

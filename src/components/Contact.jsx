@@ -49,6 +49,7 @@ const timelinesList = [
 
 const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [inquiryType, setInquiryType] = useState('Engineering Proposal');
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -72,6 +73,7 @@ const Contact = () => {
     
     try {
       const templateParams = {
+        inquiry_type: inquiryType,
         name: data.name,
         company: data.company,
         email: data.email,
@@ -114,8 +116,9 @@ const Contact = () => {
       if (activeWeb3Key) {
         const formData = new FormData();
         formData.append('access_key', activeWeb3Key);
-        formData.append('subject', `AECS Engineering Review: ${data.name} (${data.company})`);
+        formData.append('subject', `[${inquiryType}] AECS Lead: ${data.name} (${data.company})`);
         formData.append('from_name', 'AECS Engineering Portal');
+        formData.append('inquiry_type', inquiryType);
         formData.append('name', data.name);
         formData.append('company', data.company);
         formData.append('email', data.email);
@@ -226,6 +229,43 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               
+              {/* Segmented Intake Pathway Selector */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2.5">
+                  Select Inquiry Pathway <span className="text-brand-primary">*</span>
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { id: 'Engineering Proposal', title: 'Engineering Proposal', desc: 'CAE, FEA, CFD simulation & NPD' },
+                    { id: 'Equipment Quotation', title: 'Equipment Quotation', desc: 'Tire testing rigs & safety cages' },
+                    { id: 'Product Quotation', title: 'Product Quotation', desc: 'Run-flats, marine fenders & rubber' }
+                  ].map((pathway) => (
+                    <button
+                      key={pathway.id}
+                      type="button"
+                      onClick={() => setInquiryType(pathway.id)}
+                      className={`p-3.5 rounded-2xl text-left border transition-all ${
+                        inquiryType === pathway.id
+                          ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
+                          : 'border-slate-200 bg-white/70 hover:bg-white hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <span className={`text-xs font-black uppercase tracking-wider ${
+                          inquiryType === pathway.id ? 'text-brand-primary' : 'text-slate-800'
+                        }`}>
+                          {pathway.title}
+                        </span>
+                        <span className={`w-2 h-2 rounded-full ${inquiryType === pathway.id ? 'bg-brand-primary' : 'bg-slate-300'}`}></span>
+                      </div>
+                      <span className="text-[11px] text-slate-500 font-medium leading-snug block">
+                        {pathway.desc}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {/* Row 1: Name & Company */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>

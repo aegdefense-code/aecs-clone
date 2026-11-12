@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
@@ -24,7 +24,7 @@ const Hero = () => {
           className="w-full h-full object-cover object-center"
         />
         {/* Clean subtle dark scrim only to ensure text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
       </div>
 
       {/* Hero Content */}
